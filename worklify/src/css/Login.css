@@ -1,0 +1,19 @@
+.setPaper{
+    width: 30rem;
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.head{
+    font-size: xx-large;
+    color: #707070;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.button-login{
+    background-color: #175793 !important;
+    color: white !important;
+    width: 60%;
+}
