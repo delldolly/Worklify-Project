@@ -33,8 +33,6 @@ const Notification = () => {
     };
     return (
         <Container fixed>
-            <p className="header-noti">Notification</p>
-            <hr style={{ border: 'solid #DDDDDD' }}></hr>
             <TextField id="filled-basic" variant="filled"
                 InputProps={{
                     startAdornment: (
