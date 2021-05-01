@@ -89,6 +89,7 @@ const useStyles = makeStyles((theme) => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
+        marginTop: "64px",
         marginLeft: -drawerWidth,
     },
     contentShift: {
@@ -151,31 +152,6 @@ const ProjectNav = () => {
                             alt="Remy Sharp"
                             style={{ border: "2px solid #222" }}
                         />
-                        {/* <Box
-                            p={1}
-                            style={{ height: "45px", outline: 0 }}
-                            component={NavLink}
-                            to='/'
-                            exact
-                        >
-                            <img
-                                src={logo}
-                                alt="logo"
-                                height="100%"
-                            />
-                        </Box>
-                        <Box
-                            display="flex"
-                            flexDirection="row"
-                            alignItems="center"
-                        >
-                            <Box className="Navbar-user" px={2}>
-                                User
-                            </Box>
-                            <Box className="Navber-logout" px={2}>
-                                Log out
-                            </Box>
-                        </Box> */}
                     </Box>
                 </Toolbar>
             </AppBar>
@@ -277,7 +253,6 @@ const ProjectNav = () => {
                     [classes.contentShift]: open,
                 })}
             >
-                <div className={classes.drawerHeader} />
 
                 <Switch>
                     <Route exact path='/'>
