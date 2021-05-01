@@ -21,7 +21,6 @@ firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 
 const TaskBoard = () => {
-  const [loading, setLoading] = useState(false);
   const [data, setData] = useState({
     lanes: [],
   });
@@ -30,6 +29,12 @@ const TaskBoard = () => {
   //   };
 
   const handleChangeDataToFirebase = (newData) => {
+    newData.lanes.forEach((each) => {
+      if (each.cards === undefined) {
+        each.cards = [];
+      }
+      //   console.log(each.cards);
+    });
     setData(newData);
     database.ref().set(newData);
   };
@@ -42,10 +47,8 @@ const TaskBoard = () => {
       .once("value", (snapshot) => {
         console.log("User data: ", snapshot.val());
         dataArray.push(snapshot.val());
-        //   setData(snapshot.val());
       })
       .then(() => {
-        // console.log("wtf2", dataArray[0]);
         setData(dataArray[0]);
       });
   }, []);
