@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 // Material UI
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -15,8 +15,11 @@ import Toolbar from '@material-ui/core/Toolbar';
 // Image
 import logo from '../../img/Logo.png';
 
+// Page Component
+import Home from '../../pages/Home';
+
 const useStyles = makeStyles((theme) => ({
-    root: {
+    nav: {
         display: 'flex',
     },
     appBar: {
@@ -36,12 +39,9 @@ const useStyles = makeStyles((theme) => ({
     },
     contentHome: {
         flexGrow: 1,
-        padding: theme.spacing(3),
-        transition: theme.transitions.create('margin', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        }),
-        marginTop: "64px",
+        padding: 0,
+        marginTop: '64px',
+        width: '100vw',
     },
 }));
 
@@ -49,7 +49,7 @@ const Navbar = () => {
     const classes = useStyles();
 
     return (
-        <div className={classes.root}>
+        <div className={classes.nav}>
             <CssBaseline />
             <AppBar
                 position="fixed"
@@ -95,11 +95,10 @@ const Navbar = () => {
             </AppBar>
 
             <main className={classes.contentHome}>
-                <div className={classes.drawerHeader} />
-
+                
                 <Switch>
                     <Route exact path='/'>
-                        <div>Hello World</div>
+                        <Home />
                     </Route>
                 </Switch>
 

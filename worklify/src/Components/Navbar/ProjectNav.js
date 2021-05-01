@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Switch,
     Route,
@@ -39,7 +39,7 @@ import proflie from '../../img/exProfile.jpg';
 const drawerWidth = 260;
 
 const useStyles = makeStyles((theme) => ({
-    root: {
+    nav: {
         display: 'flex',
     },
     appBar: {
@@ -84,7 +84,8 @@ const useStyles = makeStyles((theme) => ({
     },
     content: {
         flexGrow: 1,
-        padding: theme.spacing(3),
+        // padding: theme.spacing(3),
+        padding: 0,
         transition: theme.transitions.create('margin', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
@@ -108,10 +109,14 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+
 const ProjectNav = () => {
     const classes = useStyles();
     const theme = useTheme();
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
+
+    const [page, setPage] = useState('');
+    const [color, setColor] = useState('#fff');
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -122,7 +127,7 @@ const ProjectNav = () => {
     };
 
     return (
-        <div className={classes.root}>
+        <div className={classes.nav}>
             <CssBaseline />
             <AppBar
                 position="fixed"
@@ -142,11 +147,15 @@ const ProjectNav = () => {
                     <Box
                         display="flex"
                         flexDirection="row"
-                        // justifyContent="space-between"
-                        justifyContent="flex-end"
+                        justifyContent="space-between"
+                        // justifyContent="flex-end"
                         m={1}
                         style={{ width: '100%' }}
                     >
+                        <div />
+                        <Typography variant="h5" gutterBottom style={{ color: '#000' }}>
+                            {page}
+                        </Typography>
                         <Avatar 
                             src={proflie}
                             alt="Remy Sharp"
@@ -203,6 +212,10 @@ const ProjectNav = () => {
                         startIcon={<FormatListBulletedIcon />}
                         className={classes.navButton}
                         component={NavLink}
+                        onClick={() => {
+                            setPage('');
+                            setColor('#fff');
+                        }}
                         activeStyle={{ backgroundColor: "#175793", borderRadius: 0 }}
                         to='/tasks'
                         exact
@@ -213,6 +226,10 @@ const ProjectNav = () => {
                         startIcon={<BuildIcon />}
                         className={classes.navButton}
                         component={NavLink}
+                        onClick={() => {
+                            setPage('Tools and Utilities');
+                            setColor('#5485A0');
+                        }}
                         activeStyle={{ backgroundColor: "#175793", borderRadius: 0 }}
                         to='/tools'
                     >
@@ -222,6 +239,10 @@ const ProjectNav = () => {
                         startIcon={<RiBookLine />}
                         className={classes.navButton}
                         component={NavLink}
+                        onClick={() => {
+                            setPage('Tutorials');
+                            setColor('#fff');
+                        }}
                         activeStyle={{ backgroundColor: "#175793", borderRadius: 0 }}
                         to='/tutorials'
                     >
@@ -231,6 +252,10 @@ const ProjectNav = () => {
                         startIcon={<SettingsIcon />}
                         className={classes.navButton}
                         component={NavLink}
+                        onClick={() => {
+                            setPage('Project Management');
+                            setColor('#fff');
+                        }}
                         activeStyle={{ backgroundColor: "#175793", borderRadius: 0 }}
                         to='/manager'
                     >
@@ -240,6 +265,10 @@ const ProjectNav = () => {
                         startIcon={<NotificationsActiveIcon />}
                         className={classes.navButton}
                         component={NavLink}
+                        onClick={() => {
+                            setPage('Notification');
+                            setColor('#fff');
+                        }}
                         activeStyle={{ backgroundColor: "#175793", borderRadius: 0 }}
                         to='/notification'
                     >
