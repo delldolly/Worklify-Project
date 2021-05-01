@@ -4,12 +4,12 @@ import {
 } from "react-router-dom";
 import './App.css';
 
-import Navbar from './Components/Navbar/Navbar';
+import ProjectNav from './Components/Navbar/ProjectNav';
 
 function App() {
   return (
     <Router>
-      <Navbar />
+      <ProjectNav />
     </Router>
   );
 }
