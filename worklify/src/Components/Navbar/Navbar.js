@@ -17,6 +17,7 @@ import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
+import Avatar from '@material-ui/core/Avatar';
 
 // icon
 import MenuIcon from '@material-ui/icons/Menu';
@@ -33,7 +34,7 @@ import { RiBookLine } from 'react-icons/ri';
 
 // Image
 import logo from '../../img/Logo.png';
-
+import proflie from '../../img/exProfile.jpg';
 
 const drawerWidth = 260;
 
@@ -46,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
-        backgroundColor: '#5485A0',
+        backgroundColor: 'transparent',
     },
     appBarShift: {
         width: `calc(100% - ${drawerWidth}px)`,
@@ -130,7 +131,6 @@ const Navbar = () => {
             >
                 <Toolbar>
                     <IconButton
-                        color="inherit"
                         aria-label="open drawer"
                         onClick={handleDrawerOpen}
                         edge="start"
@@ -141,11 +141,17 @@ const Navbar = () => {
                     <Box
                         display="flex"
                         flexDirection="row"
-                        justifyContent="space-between"
+                        // justifyContent="space-between"
+                        justifyContent="flex-end"
                         m={1}
                         style={{ width: '100%' }}
                     >
-                        <Box
+                        <Avatar 
+                            src={proflie}
+                            alt="Remy Sharp"
+                            style={{ border: "2px solid #222" }}
+                        />
+                        {/* <Box
                             p={1}
                             style={{ height: "45px", outline: 0 }}
                             component={NavLink}
@@ -169,7 +175,7 @@ const Navbar = () => {
                             <Box className="Navber-logout" px={2}>
                                 Log out
                             </Box>
-                        </Box>
+                        </Box> */}
                     </Box>
                 </Toolbar>
             </AppBar>
