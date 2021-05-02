@@ -5,11 +5,13 @@ import {
 import './App.css';
 
 import ProjectNav from './Components/Navbar/ProjectNav';
+import Navbar from './Components/Navbar/Navbar';
 
 function App() {
   return (
     <Router>
-      <ProjectNav />
+      {/* <ProjectNav /> */}
+      <Navbar />
     </Router>
   );
 }
