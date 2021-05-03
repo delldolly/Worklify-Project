@@ -173,7 +173,7 @@ const Home = () => {
                                     <Button
                                         variant="contained"
                                         color="primary"
-                                        disabled={(projectName == '' || desc == '') ? true : false}
+                                        disabled={(projectName === '' || desc === '') ? true : false}
                                         onClick={() => submitCreateProject()}
                                     >
                                         Submit
