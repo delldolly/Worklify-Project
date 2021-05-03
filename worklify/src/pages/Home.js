@@ -125,13 +125,7 @@ const Home = () => {
             <div className={classes.projectSelected}>
                 <div id="project-selected" className={classes.projectInner}>
                     {/*  Add projects component here */}
-                    {project.map(box => {
-                        return (
-                            <>
-                                {box}
-                            </>
-                        )
-                    })}
+                    {project.map(box => box)}
 
                     <div className={classes.addBtnBox} id="addBtnBox">
                         <Button
