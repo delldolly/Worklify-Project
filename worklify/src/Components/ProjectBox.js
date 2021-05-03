@@ -12,11 +12,19 @@ const useStyles = makeStyles((theme) => ({
         height: '100%',
         padding: '3vmin',
         display: 'inline-block',
+        whiteSpace: 'normal',
     },
     projectBox: {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
+        '& h4': {
+            margin: 0,
+            wordWrap: 'break-word',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis', 
+            maxHeight: '3.6em',
+        }
     }
 }));
 
