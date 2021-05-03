@@ -105,6 +105,8 @@ const Home = () => {
             ...project,
             <ProjectBox name={projectName} desc={desc} />
         ])
+        setProjectName('');
+        setDesc('');
     }
 
     const submitCreateProject = () => {
@@ -171,7 +173,7 @@ const Home = () => {
                                     <Button
                                         variant="contained"
                                         color="primary"
-                                        // type="submit"
+                                        disabled={(projectName == '' || desc == '') ? true : false}
                                         onClick={() => submitCreateProject()}
                                     >
                                         Submit

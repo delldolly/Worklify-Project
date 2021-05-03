@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
         padding: '3vmin',
         display: 'inline-block',
         whiteSpace: 'normal',
+        wordBreak: 'break-all',
     },
     projectBox: {
         display: 'flex',
