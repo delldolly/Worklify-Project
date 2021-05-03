@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     addBtn: {
         width: '100%',
         height: '100%',
-        fontSize: '10vmax',
+        fontSize: '15vmax',
     },
     addModal: {
         display: 'flex',
@@ -84,14 +84,33 @@ const useStyles = makeStyles((theme) => ({
 
 const Home = () => {
     const classes = useStyles();
+    
+    const [projectName, setProjectName] = useState('');
+    const [desc, setDesc] = useState('');
+    const [project, setProject] = useState([]);
+
     const [modalopen, setModalopen] = useState(false);
+
+    // Open model to create project
     const handleOpen = () => {
         setModalopen(true);
     };
-
     const handleClose = () => {
         setModalopen(false);
     };
+
+    const createProject = () => {
+        console.log(projectName + ' : ' + desc);
+        setProject([
+            ...project,
+            <ProjectBox name={projectName} desc={desc} />
+        ])
+    }
+
+    const submitCreateProject = () => {
+        createProject();
+        handleClose();
+    }
 
     const slidePrev = (id, size) => {
         document.getElementById(id).scrollLeft -= size;
@@ -105,14 +124,16 @@ const Home = () => {
         <div className={classes.home}>
             <div className={classes.projectSelected}>
                 <div id="project-selected" className={classes.projectInner}>
-                    <ProjectBox />
-                    <ProjectBox />
-                    <ProjectBox />
-                    <ProjectBox />
-                    <ProjectBox />
-                    <ProjectBox />
-                    <ProjectBox />
-                    <div className={classes.addBtnBox}>
+                    {/*  Add projects component here */}
+                    {project.map(box => {
+                        return (
+                            <>
+                                {box}
+                            </>
+                        )
+                    })}
+
+                    <div className={classes.addBtnBox} id="addBtnBox">
                         <Button
                             variant="contained"
                             className={classes.addBtn}
@@ -142,6 +163,7 @@ const Home = () => {
                                         label="Project name"
                                         variant="outlined"
                                         className={classes.modalInput}
+                                        onChange={e => setProjectName(e.target.value)}
                                     />
                                     <TextField
                                         id="outlined-basic"
@@ -150,11 +172,13 @@ const Home = () => {
                                         multiline
                                         rows={5}
                                         className={classes.modalInput}
+                                        onChange={e => setDesc(e.target.value)}
                                     />
                                     <Button
                                         variant="contained"
                                         color="primary"
-                                        type="submit"
+                                        // type="submit"
+                                        onClick={() => submitCreateProject()}
                                     >
                                         Submit
                                     </Button>

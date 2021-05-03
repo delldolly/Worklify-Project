@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const Project = () => {
+const Project = ({name, desc}) => {
     const classes = useStyles();
 
     return (
@@ -33,8 +33,8 @@ const Project = () => {
                     <div>
                         <img src={img} alt="img" width="60%" />
                     </div>
-                    <h1>Project name</h1>
-                    <h4>Description</h4>
+                    <h1>{name}</h1>
+                    <h4>{desc}</h4>
                 </div>
             </Button>
         </div>
