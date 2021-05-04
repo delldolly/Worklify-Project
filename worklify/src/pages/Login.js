@@ -11,6 +11,8 @@ import { useAuth } from "../contexts/AuthContext";
 import { useHistory } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 
+import { useSnackbar } from 'notistack';
+
 const useStyles = makeStyles((theme) => ({
   containerStyle: {
       height: 'calc(100vh - 64px)',
@@ -35,15 +37,36 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const handleSubmitLogin = async (e) => {
     e.preventDefault();
     try {
       await login(email, password);
-      alert("Signin Success");
+      successClick("Signin Success");
       history.push("/ProjectSelection");
     } catch (error) {
-      alert(error);
+      errorClick(error.message);
     }
+  };
+
+  const successClick = (message) => {
+    enqueueSnackbar(message, {
+      variant: 'success',
+      anchorOrigin: {
+        vertical: 'top',
+        horizontal: 'right',
+      }
+    });
+  };
+
+  const errorClick = (message) => {
+    enqueueSnackbar(message, {
+      variant: 'error',
+      anchorOrigin: {
+        vertical: 'top',
+        horizontal: 'right',
+      }
+    });
   };
   return (
     <React.Fragment>

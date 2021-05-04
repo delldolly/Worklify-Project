@@ -22,6 +22,10 @@ import ProjectBox from "../components/ProjectBox";
 //Firebase and Authen
 import { useAuth } from "../contexts/AuthContext";
 import { database } from "../firebase";
+
+//alert
+import { useSnackbar } from 'notistack';
+
 const useStyles = makeStyles((theme) => ({
   home: {
     height: "calc(100vh - 64px)",
@@ -65,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     [theme.breakpoints.down(900)]: {
-        width: "90%",
+      width: "90%",
     },
   },
   modalForm: {
@@ -97,8 +101,19 @@ const ProjectSelection = () => {
   const [projectName, setProjectName] = useState("");
   const [desc, setDesc] = useState("");
   const [project, setProject] = useState([]);
-
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const [modalopen, setModalopen] = useState(false);
+
+  //alert
+  const successClick = (message) => {
+    enqueueSnackbar(message, {
+      variant: 'success',
+      anchorOrigin: {
+        vertical: 'top',
+        horizontal: 'right',
+      }
+    });
+  };
 
   // Open model to create project
   const handleOpen = () => {
@@ -123,6 +138,7 @@ const ProjectSelection = () => {
   const submitCreateProject = () => {
     createProject();
     handleClose();
+    successClick("Success!, Create a new Project");
   };
 
   const slidePrev = (id, size) => {
