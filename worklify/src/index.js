@@ -1,12 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router,Route,Switch } from "react-router-dom";
 import './index.css';
-import App from './App';
+// import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { AuthProvider } from './contexts/AuthContext';
+
+import Navbar from './components/Navbar/Navbar';
+import ProjectNav from "./components/Navbar/ProjectNav"
+import TaskBoard from './components/TaskBoard';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AuthProvider>
+      <Router>
+        <Switch>
+        <Route path ="/project">
+             <ProjectNav/>
+          </Route>
+          <Route path="/">
+            <Navbar />
+          </Route>
+        </Switch>
+        {/* <TaskBoard/> */}
+      </Router>
+    </AuthProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
