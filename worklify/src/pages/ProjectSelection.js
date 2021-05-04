@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // Material UI
 import { makeStyles } from '@material-ui/core/styles';
@@ -17,8 +17,11 @@ import AddIcon from '@material-ui/icons/Add';
 // import logo from '../img/Logo.png';
 
 // Component
-import ProjectBox from '../Components/ProjectBox';
+import ProjectBox from '../components/ProjectBox';
 
+//Firebase and Authen
+import { useAuth } from "../contexts/AuthContext"
+import { database } from "../firebase";
 const useStyles = makeStyles((theme) => ({
     home: {
         height: 'calc(100vh - 64px)',
@@ -82,9 +85,9 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Home = () => {
+const ProjectSelection = () => {
     const classes = useStyles();
-    
+    const {currentUser} = useAuth();
     const [projectName, setProjectName] = useState('');
     const [desc, setDesc] = useState('');
     const [project, setProject] = useState([]);
@@ -105,6 +108,11 @@ const Home = () => {
             ...project,
             <ProjectBox name={projectName} desc={desc} />
         ])
+        database.ref("users/" + currentUser.uid +"/"+ projectName).set({
+            name : projectName,
+            description: desc
+        })
+
         setProjectName('');
         setDesc('');
     }
@@ -121,7 +129,18 @@ const Home = () => {
     const slideNext = (id, size) => {
         document.getElementById(id).scrollLeft += size;
     }
-
+    useEffect(()=>{
+        database.ref("users").once("value",(snapshot)=>{
+            if(snapshot.val()[currentUser["uid"]]){
+                console.log(snapshot.val()[currentUser["uid"]])
+                setProject(Object.keys(snapshot.val()[currentUser["uid"]]).map(key =>{
+                    const name = snapshot.val()[currentUser["uid"]][key]["name"]
+                    const desc = snapshot.val()[currentUser["uid"]][key]["description"]
+                    return <ProjectBox name={name} desc={desc}/>
+                }))
+            }
+        })
+    },[])
     return (
         <div className={classes.home}>
             <div className={classes.projectSelected}>
@@ -196,4 +215,4 @@ const Home = () => {
     );
 }
 
-export default Home;
+export default ProjectSelection;

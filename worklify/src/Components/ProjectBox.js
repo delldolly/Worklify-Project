@@ -1,10 +1,13 @@
 import React from "react";
-
+import { Link } from "react-router-dom"
 // Material UI
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-
 import img from '../image/Logo-project.png';
+
+
+//firebase and Auth
+import { useAuth } from "../contexts/AuthContext"
 
 const useStyles = makeStyles((theme) => ({
     projectCard: {
@@ -29,14 +32,16 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const Project = ({name, desc}) => {
+const ProjectBox = ({name, desc}) => {
     const classes = useStyles();
-
+    const {currentUser} = useAuth();
     return (
         <div className={classes.projectCard}>
             <Button
                 variant="contained"
                 style={{ width: '100%', height: '100%', backgroundColor: '#fff', border: '1px solid #555' }}
+                component={Link}
+                to={"/project/" + name}
             >
                 <div className={classes.projectBox}>
                     <div>
@@ -50,4 +55,4 @@ const Project = ({name, desc}) => {
     );
 };
 
-export default Project;
+export default ProjectBox;
