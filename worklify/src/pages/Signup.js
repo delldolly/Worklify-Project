@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./../css/Signup.css";
+
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
@@ -7,8 +8,28 @@ import Paper from "@material-ui/core/Paper";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { useAuth } from "../contexts/AuthContext";
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  containerStyle: {
+      height: 'calc(100vh - 64px)',
+      paddingTop: '3vmin',
+      paddingBottom: '3vmin',
+      overflow: 'auto',
+  },
+  typographyStyle: {
+      height: '100%',
+      padding: '3vmin 0',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexDirection: 'column',
+  },
+}));
 
 const Signup = () => {
+  const classes = useStyles();
+
   const { signup } = useAuth();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -30,16 +51,10 @@ const Signup = () => {
     <React.Fragment>
       <CssBaseline />
       {/* {JSON.stringify(currentUser)} */}
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" className={classes.containerStyle}>
         <Typography
           component="div"
-          style={{
-            height: "100vh",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexDirection: "column",
-          }}
+          className={classes.typographyStyle}
         >
           <Paper className="setPaper" elevation={3}>
             <p className="head">Sign up</p>
