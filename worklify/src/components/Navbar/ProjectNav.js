@@ -42,7 +42,9 @@ import TaskBoard from "../TaskBoard";
 
 //Page
 import Tool from "../../pages/Tool";
+import Calculator from "../../pages/Calculator";
 import Notepad from "../../pages/Notepad";
+import Excels from "../../pages/Excel";
 import Management from "../../pages/Management";
 import Tutorials from "../../pages/Tutorials";
 import TutorialsLearn from "../../pages/Tutorials-Learn";
@@ -327,9 +329,17 @@ const ProjectNav = () => {
           <Route path="/project/tasks/:nameProject">
             <TaskBoard name={nameProject} />
           </Route>
-          <Route path="/project/tools">
-            {/* <Tool /> */}
+          <Route exact path="/project/tools">
+            <Tool />
+          </Route>
+          <Route path="/project/tools/calculator">
+            <Calculator />
+          </Route>
+          <Route path="/project/tools/notepad">
             <Notepad />
+          </Route>
+          <Route path="/project/tools/excel">
+            <Excels />
           </Route>
           <Route exact path="/project/tutorials">
             <Tutorials />
