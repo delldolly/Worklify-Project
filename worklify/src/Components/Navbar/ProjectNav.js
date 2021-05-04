@@ -133,7 +133,7 @@ const ProjectNav = () => {
     const [open, setOpen] = useState(false);
     // const [nameProject, setNameProject] = useState("")
     const [page, setPage] = useState('');
-    const { nameProject, removeCookieName } = useAuth();
+    const { nameProject, removeCookieName,logout } = useAuth();
 
     const [menu, setMenu] = React.useState(null);
 
@@ -206,7 +206,7 @@ const ProjectNav = () => {
                               horizontal: 'right',
                             }}
                         >
-                            <MenuItem onClick={menuClose}>Log out</MenuItem>
+                            <MenuItem onClick={logout}>Log out</MenuItem>
                         </Menu>
 
                     </Box>

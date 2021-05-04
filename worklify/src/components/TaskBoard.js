@@ -51,6 +51,7 @@ const TaskBoard = ({name}) => {
     <>
       {/* {fetchData} */}
       <Board
+        style={{height:"calc(100vh - 64px)"}}
         data={data}
         editable
         draggable

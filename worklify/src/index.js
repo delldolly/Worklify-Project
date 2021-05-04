@@ -8,7 +8,6 @@ import { AuthProvider } from './contexts/AuthContext';
 
 import Navbar from './components/Navbar/Navbar';
 import ProjectNav from "./components/Navbar/ProjectNav"
-import TaskBoard from './components/TaskBoard';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -18,7 +17,7 @@ ReactDOM.render(
         <Route path ="/project">
              <ProjectNav/>
           </Route>
-          <Route path="/">
+          <Route strict path="/">
             <Navbar />
           </Route>
         </Switch>
