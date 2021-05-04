@@ -20,7 +20,7 @@ const Login = () => {
     try {
       await login(email, password);
       alert("Signin Success");
-      history.push("/Task");
+      history.push("/ProjectSelection");
     } catch (error) {
       alert(error);
     }
