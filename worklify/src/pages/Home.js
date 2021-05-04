@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "./../css/Home.css"
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
@@ -23,9 +24,23 @@ const Home = () => {
                         Ut a augue dapibus velit viverra dictum eget suscipit neque. Vivamus dignissim neque nec congue
                         pharetra.
                     </span>
-                    <div style={{ display: 'flex',marginTop:'4rem', width:'100%',justifyContent:'space-around' }}>
-                        <Button className="button-foot" style={{backgroundColor:'#5485A0',width:'20%',padding:'0.5rem',color:'white'}}>Log in</Button>
-                        <Button className="button-foot" style={{backgroundColor:'#175793',width:'20%',padding:'0.5rem',color:'white'}}>Sign up</Button>
+                    <div style={{ display: 'flex', marginTop: '4rem', width: '100%', justifyContent: 'space-around' }}>
+                        <Button
+                            className="button-foot"
+                            style={{ backgroundColor: '#5485A0', width: '20%', padding: '0.5rem', color: 'white' }}
+                            component={Link}
+                            to="/Login"
+                        >
+                            Log in
+                        </Button>
+                        <Button 
+                            className="button-foot" 
+                            style={{ backgroundColor: '#175793', width: '20%', padding: '0.5rem', color: 'white' }}
+                            component={Link}
+                            to="/Signup"
+                        >
+                            Sign up
+                        </Button>
                     </div>
                 </Typography>
             </Container>

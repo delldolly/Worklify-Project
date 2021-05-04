@@ -13,9 +13,12 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 
 // Image
-import logo from '../../img/Logo.png';
+import logo from '../../image/Logo.png';
 
 // Page Component
+import Home from '../../pages/Home';
+import Login from '../../pages/Login';
+import Signup from '../../pages/Signup';
 import ProjectSelection from '../../pages/ProjectSelection';
 
 const useStyles = makeStyles((theme) => ({
@@ -98,6 +101,15 @@ const Navbar = () => {
                 
                 <Switch>
                     <Route exact path='/'>
+                        <Home />
+                    </Route>
+                    <Route path='/Login'>
+                        <Login />
+                    </Route>
+                    <Route path='/Signup'>
+                        <Signup />
+                    </Route>
+                    <Route path='/ProjectSelection'>
                         <ProjectSelection />
                     </Route>
                 </Switch>
