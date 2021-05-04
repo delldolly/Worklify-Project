@@ -52,15 +52,10 @@ const Home = () => {
                 <Typography component="div" className={classes.typographyStyle}>
                     <p className="header">Welcome to Worklify</p>
                     <span className="content">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel lobortis justo. Integer blandit
-                        sollicitudin eros, a sollicitudin lectus congue eget. Mauris vitae maximus lectus. Nulla nisi sem, porta
-                        nec viverra eu, blandit vel tortor. Integer sed ipsum dignissim, ullamcorper sapien quis, porta augue.
-                        Ut a augue dapibus velit viverra dictum eget suscipit neque. Vivamus dignissim neque nec congue
-                        pharetra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel lobortis justo. Integer blandit
-                        sollicitudin eros, a sollicitudin lectus congue eget. Mauris vitae maximus lectus. Nulla nisi sem, porta
-                        nec viverra eu, blandit vel tortor. Integer sed ipsum dignissim, ullamcorper sapien quis, porta augue.
-                        Ut a augue dapibus velit viverra dictum eget suscipit neque. Vivamus dignissim neque nec congue
-                        pharetra.
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;พวกเราคือ Worklify เว็บที่จะมาช่วยให้คุณจัดการงานที่ยุ่งยากอย่างเป็นระเบียบ! เบื่อไหม?
+                        เวลาที่มีงานเข้ามีในแต่ละวันเยอะเกินไป โฟกัสหลายงานมากเกินไป เดทไลน์งานชนกันเหมือนรถไฟ หรือแม้กระทั่งจัดลำดับความสำคัญงานไม่ถูก เว็บของเราพร้อม
+                        ที่จะมาช่วยแก้ปัญหาเหล่านี้แล้ว โดยคุณสามารถสร้าง "หัวข้อ" และ "งาน" ในแต่ละหัวข้อง่ายๆเหมือนแปะ post-it! พร้อมรึยัง? กับการสร้างโลกการทำงานส่วน
+                        ตัวแบบออนไลน์ สามารถพกตารางชีวิตส่วนตัวไปได้ทุกที่ จัดการงานได้เป็นระบบสุดๆอย่างที่ไม่เคยเป็นมาก่อน ถ้าพร้อมแล้ว เข้าใช้งานเว็บไซต์กันได้แล้ววันนี้!
                     </span>
                     <div className={classes.buttonBox}>
                         <Button
