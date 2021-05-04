@@ -30,6 +30,12 @@ const useStyles = makeStyles((theme) => ({
     paper: {
         padding: '6vmin 10vmin',
     },
+    header: {
+        color: "#000000", 
+        fontWeight: "Bold", 
+        paddingBottom: "1vw",
+        fontSize: '4.2vmin',
+    },
     buttonGrid: {
         display: 'flex',
         alignItems: 'center',
@@ -37,19 +43,28 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'space-between',
         padding: '1vmin 0'
     },
+    iconBox: {
+        alignSelf: 'center',
+    },
     paperInner: {
         padding: theme.spacing(1),
         marginRight: theme.spacing(2),
         textAlign: 'center',
         color: theme.palette.text.secondary,
         backgroundColor: "#5485A0",
+        [theme.breakpoints.down(767)]: {
+            width: '100%',
+            margin: 0,
+        },
     },
     toolDetail: {
         padding: '0 2vmin',
+        alignSelf: 'center',
     },
     goBtn: {
         textAlign: 'center',
-        fontSize: '5vmin'
+        fontSize: '5vmin',
+        padding: '1vmin 0'
     }
 }));
 const Tool = () => {
@@ -59,7 +74,7 @@ const Tool = () => {
         <div className={classes.containerStyle}>
             <div className={classes.containerInner}>
                 <Paper className={classes.paper}>
-                    <Typography variant="h4" style={{ color: "#000000", fontWeight: "Bold", paddingBottom: "1vw" }}>
+                    <Typography variant="h4" className={classes.header}>
                         All Tools
                     </Typography>
 
@@ -68,24 +83,26 @@ const Tool = () => {
                         component={Link}
                         to="/"
                     >
-                        <Grid item xs={2} sm={2}>
-                            <Paper className={classes.paperInner}>
-                                <IoMdCalculator className="Toolsize" style={{ color: "#000000" }} />
-                            </Paper>
-                        </Grid>
-                        <Grid item xs={9} sm={9} className={classes.toolDetail}>
-                            <div className="Toolsize2">
-                                <Typography variant="h5" style={{ color: "#000000", fontWeight: "Bold" }}>
-                                    Calculator
-                                </Typography>
-                                <Typography variant="subtitle1" gutterBottom  >
-                                    Online calculator for quick calculations, along with a large collection of calculators on math, finance, fitness, and more, each with related in-depth information.
-                                </Typography>
-                            </div>
+                        <Grid container>
+                            <Grid item xs={12} sm={12} md={2} className={classes.iconBox}>
+                                <Paper className={classes.paperInner}>
+                                    <IoMdCalculator className="Toolsize" style={{ color: "#000000" }} />
+                                </Paper>
+                            </Grid>
+                            <Grid item xs={10} sm={10} md={9} className={classes.toolDetail}>
+                                <div className="Toolsize2">
+                                    <Typography variant="h5" style={{ color: "#000000", fontWeight: "Bold" }}>
+                                        Calculator
+                                    </Typography>
+                                    <Typography variant="subtitle1" gutterBottom  >
+                                        Online calculator for quick calculations, along with a large collection of calculators on math, finance, fitness, and more, each with related in-depth information.
+                                    </Typography>
+                                </div>
 
-                        </Grid>
-                        <Grid item xs={1} sm={1} className={classes.goBtn}>
-                            <GrNext style={{ color: "#868686" }} />
+                            </Grid>
+                            <Grid item xs={2} sm={2} md={1} className={classes.goBtn}>
+                                <GrNext style={{ color: "#868686" }} />
+                            </Grid>
                         </Grid>
                     </Button>
 
@@ -94,24 +111,26 @@ const Tool = () => {
                         component={Link}
                         to="/"
                     >
-                        <Grid item xs={2} sm={2}>
-                            <Paper className={classes.paperInner}>
-                                <FaFileExcel className="Toolsize" style={{ color: "#000000" }} />
-                            </Paper>
-                        </Grid>
-                        <Grid item xs={9} sm={9} className={classes.toolDetail}>
-                            <div className="Toolsize2">
-                                <Typography variant="h5" style={{ color: "#000000", fontWeight: "Bold" }}>
-                                    Excel for list table
-                                </Typography>
-                                <Typography variant="subtitle1" gutterBottom  >
-                                    Collaborate for free with Save spreadsheets in website. Edit your spreadsheets and download export file.
-                                </Typography>
-                            </div>
+                        <Grid container>
+                            <Grid item xs={12} sm={12} md={2} className={classes.iconBox}>
+                                <Paper className={classes.paperInner}>
+                                    <FaFileExcel className="Toolsize" style={{ color: "#000000" }} />
+                                </Paper>
+                            </Grid>
+                            <Grid item xs={10} sm={10} md={9} className={classes.toolDetail}>
+                                <div className="Toolsize2">
+                                    <Typography variant="h5" style={{ color: "#000000", fontWeight: "Bold" }}>
+                                        Excel for list table
+                                    </Typography>
+                                    <Typography variant="subtitle1" gutterBottom  >
+                                        Collaborate for free with Save spreadsheets in website. Edit your spreadsheets and download export file.
+                                    </Typography>
+                                </div>
 
-                        </Grid>
-                        <Grid item xs={1} sm={1} className={classes.goBtn}>
-                            <GrNext style={{ color: "#868686" }} />
+                            </Grid>
+                            <Grid item xs={2} sm={2} md={1} className={classes.goBtn}>
+                                <GrNext style={{ color: "#868686" }} />
+                            </Grid>
                         </Grid>
                     </Button>
 
@@ -120,24 +139,26 @@ const Tool = () => {
                         component={Link}
                         to="/"
                     >
-                        <Grid item xs={2} sm={2}>
-                            <Paper className={classes.paperInner}>
-                                <FaStickyNote className="Toolsize" style={{ color: "#000000" }} />
-                            </Paper>
-                        </Grid>
-                        <Grid item xs={9} sm={9}>
-                            <div className="Toolsize2" className={classes.toolDetail}>
-                                <Typography variant="h5" style={{ color: "#000000", fontWeight: "Bold" }}>
-                                    Notepad
-                                </Typography>
-                                <Typography variant="subtitle1" gutterBottom  >
-                                    free online notepad in web browser. A simple text editor is all you need to use.you can create notes (ideas, to-do list, links, or any other plain text) that you would like to write just in a web browser online.
-                                </Typography>
-                            </div>
+                        <Grid container>
+                            <Grid item xs={12} sm={12} md={2} className={classes.iconBox}>
+                                <Paper className={classes.paperInner}>
+                                    <FaStickyNote className="Toolsize" style={{ color: "#000000" }} />
+                                </Paper>
+                            </Grid>
+                            <Grid item xs={10} sm={10} md={9} className={classes.toolDetail}>
+                                <div className="Toolsize2">
+                                    <Typography variant="h5" style={{ color: "#000000", fontWeight: "Bold" }}>
+                                        Notepad
+                                    </Typography>
+                                    <Typography variant="subtitle1" gutterBottom  >
+                                        free online notepad in web browser. A simple text editor is all you need to use.you can create notes (ideas, to-do list, links, or any other plain text) that you would like to write just in a web browser online.
+                                    </Typography>
+                                </div>
 
-                        </Grid>
-                        <Grid item xs={1} sm={1} className={classes.goBtn}>
-                            <GrNext style={{ color: "#868686" }} />
+                            </Grid>
+                            <Grid item xs={2} sm={2} md={1} className={classes.goBtn}>
+                                <GrNext style={{ color: "#868686" }} />
+                            </Grid>
                         </Grid>
                     </Button>
                 </Paper>
