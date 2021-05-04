@@ -49,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
     },
     goBtn: {
         textAlign: 'center',
+        fontSize: '5vmin'
     }
 }));
 const Tool = () => {
@@ -84,7 +85,7 @@ const Tool = () => {
 
                         </Grid>
                         <Grid item xs={1} sm={1} className={classes.goBtn}>
-                            <GrNext className="Toolsize" style={{ color: "#868686" }} />
+                            <GrNext style={{ color: "#868686" }} />
                         </Grid>
                     </Button>
 
@@ -110,7 +111,7 @@ const Tool = () => {
 
                         </Grid>
                         <Grid item xs={1} sm={1} className={classes.goBtn}>
-                            <GrNext className="Toolsize" style={{ color: "#868686" }} />
+                            <GrNext style={{ color: "#868686" }} />
                         </Grid>
                     </Button>
 
@@ -136,7 +137,7 @@ const Tool = () => {
 
                         </Grid>
                         <Grid item xs={1} sm={1} className={classes.goBtn}>
-                            <GrNext className="Toolsize" style={{ color: "#868686" }} />
+                            <GrNext style={{ color: "#868686" }} />
                         </Grid>
                     </Button>
                 </Paper>
