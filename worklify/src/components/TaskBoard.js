@@ -3,9 +3,8 @@ import Board from "react-trello";
 import { database } from "../firebase";
 import { useEffect, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
-import {useParams} from "react-router-dom"
 
-const TaskBoard = ({name}) => {
+const TaskBoard = ({ name }) => {
   const { currentUser } = useAuth();
   const [data, setData] = useState({
     lanes: [],
@@ -21,7 +20,7 @@ const TaskBoard = ({name}) => {
       }
     });
     setData(newData);
-    database.ref("users/" + currentUser.uid+"/"+name).update(newData);
+    database.ref("users/" + currentUser.uid + "/" + name).update(newData);
   };
 
   useEffect(() => {
@@ -30,14 +29,13 @@ const TaskBoard = ({name}) => {
     if (currentUser !== null) {
       // console.log(currentUser.uid);
       database
-        .ref("users/" + currentUser.uid+"/"+name)
+        .ref("users/" + currentUser.uid + "/" + name)
         .once("value", (snapshot) => {
-          if (snapshot.val()["lanes"]){
-            console.log(snapshot.val()["lanes"])
-            dataArray.push(snapshot.val()); 
+          if (snapshot.val()["lanes"]) {
+            console.log(snapshot.val()["lanes"]);
+            dataArray.push(snapshot.val());
           }
           console.log("User data: ", snapshot.val()["lanes"]);
-          
         })
         .then(() => {
           setData(dataArray[0]);
@@ -51,7 +49,7 @@ const TaskBoard = ({name}) => {
     <>
       {/* {fetchData} */}
       <Board
-        style={{height:"calc(100vh - 64px)"}}
+        style={{ height: "calc(100vh - 64px)" }}
         data={data}
         editable
         draggable

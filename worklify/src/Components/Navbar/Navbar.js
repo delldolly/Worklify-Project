@@ -58,13 +58,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Navbar = () => {
-  const { pageLocation,currentUser, logout } = useAuth();
+  const { pageLocation, currentUser, logout } = useAuth();
   const classes = useStyles();
   const location = useLocation();
   console.log(location);
 
   const match = matchPath(location.pathname, { path: "/project/" });
-    useEffect(()=>{console.log(pageLocation,currentUser)},[pageLocation])
+  useEffect(() => {
+    console.log(pageLocation, currentUser);
+  }, [pageLocation]);
 
   return (
     <>
@@ -84,9 +86,8 @@ const Navbar = () => {
                   p={1}
                   style={{ height: "45px", outline: 0 }}
                   component={NavLink}
-                  to={currentUser !== "null"? "/ProjectSelection" : "/"}
+                  to={currentUser !== "null" ? "/ProjectSelection" : "/"}
                 >
-                    
                   <img src={logo} alt="logo" height="100%" />
                 </Box>
                 <Box display="flex" flexDirection="row" alignItems="center">
