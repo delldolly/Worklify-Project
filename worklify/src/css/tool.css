@@ -1,11 +1,35 @@
 .Toolsize{
-    width: 6vw;
-    height: 6vw;
-    font-size: 5vw;
+    font-size: 6vw;
     margin: auto;
     margin-top: 1vw;
-    margin-bottom: 0.5vw;
+    margin-bottom: 1vw;
 }
-.Toolsize2{
-    width: 50vw;
+
+.Toolsize2 h5 {
+    font-size: 3.5vmin;
 }
+
+.Toolsize2 h6 {
+    font-size: 2.5vmin;
+    margin: 0;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 959px) {
+    .Toolsize{
+        font-size: 6vw;
+    }
+    
+    .Toolsize2 h6 {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 599px) {
+    .Toolsize{
+        font-size: 10vw;
+    }
+}
+

@@ -1,124 +1,204 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-import "../css/notepad.css";
+import React, { useState } from "react";
+
+import { makeStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
+import TextField from "@material-ui/core/TextField";
+
 // import { FaFileAlt } from 'react-icons/fa';
-import { MdEdit } from 'react-icons/md';
-import Lottie from 'lottie-react';
-import Iconfile from './lotties/4922-search-files.json';
-import FooterGif from './lotties/24393-online-work.json';
+import { MdEdit } from "react-icons/md";
+import Lottie from "lottie-react";
+import Iconfile from "./lotties/4922-search-files.json";
+import FooterGif from "./lotties/24393-online-work.json";
+
+import "../css/management.css";
+
 const useStyles = makeStyles((theme) => ({
+    containerStyle: {
+        height: 'calc(100vh - 64px)',
+        padding: '3vmin',
+        overflow: 'auto',
+    },
+    containerInner: {
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+    },
+    containerGrid: {
+        justifyContent: 'center',
+    },
     paper: {
+        height: '100%',
         padding: theme.spacing(2),
-        textAlign: 'center',
+        textAlign: "center",
         color: theme.palette.text.secondary,
         backgroundColor: "#5485A0",
+        display: 'flex',
+        alignItems: 'center',
     },
-    paper2: {
-        padding: theme.spacing(10),
+    icon: {
+        width: '100%',
+        height: '20vmin',
+        [theme.breakpoints.down(600)]: {
+            height: '35vmin',
+        },
     },
-    paper3: {
-        padding: theme.spacing(2),
-        backgroundColor: "#5485A0",
+    bottomLottie: {
+        height: '50vmin',
+        [theme.breakpoints.down(600)]: {
+            height: '60vmin',
+        },
     },
-    paper4: {
-        padding: theme.spacing(10),
-       boxShadow: "0px 0px 0px 0px rgb(0 0 0 / 20%)",
-},
+    addModal: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    modalPaper: {
+      width: "50%",
+      backgroundColor: theme.palette.background.paper,
+      borderRadius: "10px",
+      boxShadow: theme.shadows[5],
+      padding: theme.spacing(2, 4, 3),
+      [theme.breakpoints.down(900)]: {
+          width: "90%",
+      },
+    },
+    modalForm: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: theme.spacing(2, 4, 3),
+    },
+    modalInput: {
+      width: "100%",
+      margin: theme.spacing(2, 1),
+    },
 }));
 
-  
-const Notepad = () => {
+const Management = () => {
     const classes = useStyles();
-   
+
+    const [projectName, setProjectName] = useState("");
+    const [desc, setDesc] = useState("");
+    const [modalopen, setModalopen] = useState(false);
+
+    const handleOpen = () => {
+        setModalopen(true);
+    };
+    const handleClose = () => {
+        setModalopen(false);
+    };
+
     return (
-        <div>
-            <Grid container spacing={3}>
-                <Grid item xs={12}>
+        <div className={classes.containerStyle}>
+            <div className={classes.containerInner}>
+
+                <Grid container spacing={3} className={classes.containerGrid}>
+                    <Grid item xs={12} sm={4} md={3}>
+                        <Paper className={classes.paper}>
+                            <Lottie animationData={Iconfile} className={classes.icon} />
+                        </Paper>
+                    </Grid>
+                    <Grid item xs={12} sm={8} md={9}>
+                        <div className="Toolsize3">
+                            <Typography
+                                variant="h4"
+                                style={{ color: "#000000", fontWeight: "Bold" }}
+                            >
+                                Project name
+                            </Typography>
+                            <Typography variant="subtitle1" gutterBottom>
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                                diam nonumy eirmod tempor invidunt utst, links, or any other
+                                plain text) that you would like to write just in a web
+                                browser online.
+                            </Typography>
+                            <div className="button-box">
+                                <Button
+                                    variant="contained"
+                                    className="manage-btn"
+                                    style={{
+                                        backgroundColor: "#5485A0",
+                                    }}
+                                    onClick={handleOpen}
+                                >
+                                    EDIT PROJECT
+                                </Button>
+                                <Button
+                                    variant="contained"
+                                    className="manage-btn"
+                                    style={{
+                                        backgroundColor: "#175793",
+                                        marginLeft: "1vw",
+                                    }}
+                                >
+                                    DELELE PROJECT
+                                </Button>
+                            </div>
+
+                            {/* Modal */}
+                            <Modal
+                                aria-labelledby="transition-modal-title"
+                                aria-describedby="transition-modal-description"
+                                className={classes.addModal}
+                                open={modalopen}
+                                onClose={handleClose}
+                                closeAfterTransition
+                                BackdropComponent={Backdrop}
+                                BackdropProps={{
+                                    timeout: 500,
+                                }}
+                            >
+                                <Fade in={modalopen}>
+                                    <div className={classes.modalPaper}>
+                                        <h2>Edit project</h2>
+                                        <form
+                                            noValidate
+                                            autoComplete="off"
+                                            className={classes.modalForm}
+                                        >
+                                            <TextField
+                                                id="outlined"
+                                                label="Project name"
+                                                variant="outlined"
+                                                className={classes.modalInput}
+                                                onChange={(e) => setProjectName(e.target.value)}
+                                            />
+                                            <TextField
+                                                id="outlined"
+                                                label="Description"
+                                                variant="outlined"
+                                                multiline
+                                                rows={5}
+                                                className={classes.modalInput}
+                                                onChange={(e) => setDesc(e.target.value)}
+                                            />
+                                            <Button
+                                                variant="contained"
+                                                color="primary"
+                                            >
+                                                Edit
+                                            </Button>
+                                        </form>
+                                    </div>
+                                </Fade>
+                            </Modal>
+                        </div>
+                    </Grid>
+
+                    <Lottie animationData={FooterGif} className={classes.bottomLottie} />
                 </Grid>
-            </Grid>
-
-            <Grid container spacing={3}>
-                <Grid item xs={12}>
-                    <Paper className={classes.paper4}>
-                        <Grid container spacing={8}>
-                            <Grid item xs={3} sm={3}>
-                                <Paper className={classes.paper}>
-                                <Lottie animationData={Iconfile} style={{height:"14vw"}} />
-                                {/* <FaFileAlt className="Toolsize" style={{ color: "#FFFFFF",paddingTop:"2.5vw",paddingBottom:"2.5vw"}} /> */}
-                                </Paper>
-                            </Grid>
-                            <Grid item xs={8} sm={8}>
-                                <div className="Toolsize2">
-                                <Typography variant="h4" style={{ color: "#000000", fontWeight: "Bold"}}>
-                                Project name <MdEdit style={{ color: "#000000", width:"2vw", height:"2vw"}} /></Typography>
-                                    <Typography variant="subtitle1" gutterBottom  >
-                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt utst, links, or any other plain text) that you would like to write just in a web browser online.
-      </Typography>
-      <Button variant="contained" style={{ backgroundColor: "#5485A0",color: "#FFFFFF",width: "15vw", border:"1vw"}}>EDIT</Button>
-      <Button variant="contained" style={{ backgroundColor: "#175793",color: "#FFFFFF",width: "15vw", border:"1vw",marginLeft:"1vw"}}>DELELE PROJECT</Button>
-                                    {/* <Typography variant="subtitle1" gutterBottom style={{ color: "#175793" }} >
-                                        Go to favorite Tools
-      </Typography> */}
-                                </div>
-                            </Grid>
-                            <Grid item xs={1} sm={1}>
-                            </Grid>
-                        </Grid>
-                        {/* <Typography variant="h5" style={{ color: "#000000", fontWeight: "Bold",paddingBottom:"1vw",paddingTop:"2vw"}}>
-                        Recent Projects
-</Typography>
-<Grid container spacing={8}>
-<Grid item xs={2} sm={2}>
-                                <Paper className={classes.paper}>
-                                <AiFillFile className="Toolsize" style={{ color: "#FFFFFF" }} />
-                                </Paper>
-                                <Typography variant="h6" style={{ color: "#000000", fontWeight: "Bold",paddingBottom:"1vw",paddingTop:"2vw",textAlign: "center"}}>
-                        My Project 1
-</Typography>
-<Button variant="contained" style={{ backgroundColor: "#5485A0",color: "#FFFFFF",width: "11vw", border:"1vw"}}>Edit</Button>
-
-                            </Grid>
-                            <Grid item xs={2} sm={2}>
-                                <Paper className={classes.paper}>
-                                <AiFillFile className="Toolsize" style={{ color: "#FFFFFF" }} />
-                                </Paper>
-                                <Typography variant="h6" style={{ color: "#000000", fontWeight: "Bold",paddingBottom:"1vw",paddingTop:"2vw",textAlign: "center"}}>
-                        My Project 2
-</Typography>
-<Button variant="contained" style={{ backgroundColor: "#5485A0",color: "#FFFFFF",width: "11vw", border:"1vw"}}>Edit</Button>
-
-                            </Grid>
-                            <Grid item xs={2} sm={2}>
-                                <Paper className={classes.paper}>
-                                <AiFillFile className="Toolsize" style={{ color: "#FFFFFF" }} />
-                                </Paper>
-                                <Typography variant="h6" style={{ color: "#000000", fontWeight: "Bold",paddingBottom:"1vw",paddingTop:"2vw",textAlign: "center"}}>
-                        My Project 3
-</Typography>
-<Button variant="contained" style={{ backgroundColor: "#5485A0",color: "#FFFFFF",width: "11vw", border:"1vw"}}>Edit</Button>
-
-                            </Grid>
-                            <Grid item xs={2} sm={2}>
-                                <Paper className={classes.paper}>
-                                <AiFillFile className="Toolsize" style={{ color: "#FFFFFF" }} />
-                                </Paper>
-                                <Typography variant="h6" style={{ color: "#000000", fontWeight: "Bold",paddingBottom:"1vw",paddingTop:"2vw",textAlign: "center"}}>
-                        My Project 4
-</Typography>
-<Button variant="contained" style={{ backgroundColor: "#5485A0",color: "#FFFFFF",width: "11vw", border:"1vw"}}>Edit</Button>
-
-                            </Grid>
-                            </Grid> */}
-                             <Lottie animationData={FooterGif} style={{height:"20vw"}} />
-                    </Paper>
-
-                </Grid>
-            </Grid>
+            </div>
         </div>
-    )
-}
-export default Notepad;
+    );
+};
+export default Management;

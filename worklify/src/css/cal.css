@@ -28,7 +28,7 @@
     width: 30vw;
   }
   
-  input {
+  input.cal-input {
     border: 1px solid black;
     background-color: rgba(157, 195, 238, 0.4);
     width: 10vw;
