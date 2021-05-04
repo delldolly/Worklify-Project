@@ -5,9 +5,11 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import "../css/notepad.css";
-import { AiFillFile } from 'react-icons/ai';
-import { FaFileAlt } from 'react-icons/fa';
+// import { FaFileAlt } from 'react-icons/fa';
 import { MdEdit } from 'react-icons/md';
+import Lottie from 'lottie-react';
+import Iconfile from './lotties/4922-search-files.json';
+import FooterGif from './lotties/24393-online-work.json';
 const useStyles = makeStyles((theme) => ({
     paper: {
         padding: theme.spacing(2),
@@ -45,7 +47,8 @@ const Notepad = () => {
                         <Grid container spacing={8}>
                             <Grid item xs={3} sm={3}>
                                 <Paper className={classes.paper}>
-                                <FaFileAlt className="Toolsize" style={{ color: "#FFFFFF",paddingTop:"2.5vw",paddingBottom:"2.5vw"}} />
+                                <Lottie animationData={Iconfile} style={{height:"14vw"}} />
+                                {/* <FaFileAlt className="Toolsize" style={{ color: "#FFFFFF",paddingTop:"2.5vw",paddingBottom:"2.5vw"}} /> */}
                                 </Paper>
                             </Grid>
                             <Grid item xs={8} sm={8}>
@@ -55,7 +58,8 @@ const Notepad = () => {
                                     <Typography variant="subtitle1" gutterBottom  >
                                     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt utst, links, or any other plain text) that you would like to write just in a web browser online.
       </Typography>
-      <Button variant="contained" style={{ backgroundColor: "#5485A0",color: "#FFFFFF",width: "15vw", border:"1vw"}}>Edit</Button>
+      <Button variant="contained" style={{ backgroundColor: "#5485A0",color: "#FFFFFF",width: "15vw", border:"1vw"}}>EDIT</Button>
+      <Button variant="contained" style={{ backgroundColor: "#175793",color: "#FFFFFF",width: "15vw", border:"1vw",marginLeft:"1vw"}}>DELELE PROJECT</Button>
                                     {/* <Typography variant="subtitle1" gutterBottom style={{ color: "#175793" }} >
                                         Go to favorite Tools
       </Typography> */}
@@ -64,7 +68,7 @@ const Notepad = () => {
                             <Grid item xs={1} sm={1}>
                             </Grid>
                         </Grid>
-                        <Typography variant="h5" style={{ color: "#000000", fontWeight: "Bold",paddingBottom:"1vw",paddingTop:"2vw"}}>
+                        {/* <Typography variant="h5" style={{ color: "#000000", fontWeight: "Bold",paddingBottom:"1vw",paddingTop:"2vw"}}>
                         Recent Projects
 </Typography>
 <Grid container spacing={8}>
@@ -108,7 +112,8 @@ const Notepad = () => {
 <Button variant="contained" style={{ backgroundColor: "#5485A0",color: "#FFFFFF",width: "11vw", border:"1vw"}}>Edit</Button>
 
                             </Grid>
-                            </Grid>
+                            </Grid> */}
+                             <Lottie animationData={FooterGif} style={{height:"20vw"}} />
                     </Paper>
 
                 </Grid>
