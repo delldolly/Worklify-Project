@@ -142,7 +142,6 @@ const ProjectNav = () => {
     };
 
     const menuClose = () => {
-        logout();
         setMenu(null);
     };
 
@@ -207,7 +206,7 @@ const ProjectNav = () => {
                               horizontal: 'right',
                             }}
                         >
-                            <MenuItem onClick={menuClose}>Log out</MenuItem>
+                            <MenuItem onClick={logout}>Log out</MenuItem>
                         </Menu>
 
                     </Box>
