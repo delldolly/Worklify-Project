@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import {
     Switch,
     Route,
-    NavLink
+    NavLink,
+
+    useLocation
 } from "react-router-dom";
 
 // Material UI
@@ -27,7 +29,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 import BuildIcon from '@material-ui/icons/Build';
 import SettingsIcon from '@material-ui/icons/Settings';
-import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 import { RiBookLine } from 'react-icons/ri';
 // import { FiCheckSquare } from 'react-icons/fi';
@@ -35,6 +37,16 @@ import { RiBookLine } from 'react-icons/ri';
 // Image
 import logo from '../../image/Logo.png';
 import proflie from '../../image/exProfile.jpg';
+
+//Auth
+import { useAuth } from "../../contexts/AuthContext"
+
+//Component
+import TaskBoard from "../TaskBoard"
+
+//Page
+import Tool from "../../pages/Tool"
+
 
 const drawerWidth = 260;
 
@@ -111,12 +123,16 @@ const useStyles = makeStyles((theme) => ({
 
 
 const ProjectNav = () => {
+    const location = useLocation();
+    
+    // const nameProject = location.state.name
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = useState(false);
-
+    // const [nameProject, setNameProject] = useState("")
     const [page, setPage] = useState('');
     const [color, setColor] = useState('#fff');
+    const { nameProject,removeCookieName } = useAuth();
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -199,7 +215,7 @@ const ProjectNav = () => {
                         />
                     </Box>
                     <Typography variant="h5" gutterBottom>
-                        Project Name
+                        {nameProject}
                     </Typography>
                 </Box>
                 <Divider />
@@ -217,8 +233,7 @@ const ProjectNav = () => {
                             setColor('#fff');
                         }}
                         activeStyle={{ backgroundColor: "#175793", borderRadius: 0 }}
-                        to='/tasks'
-                        exact
+                        to= {`/project/tasks/${nameProject}`}
                     >
                         All Tasks
                     </Button>
@@ -231,7 +246,7 @@ const ProjectNav = () => {
                             setColor('#5485A0');
                         }}
                         activeStyle={{ backgroundColor: "#175793", borderRadius: 0 }}
-                        to='/tools'
+                        to='/project/tools'
                     >
                         Tools
                     </Button>
@@ -244,7 +259,7 @@ const ProjectNav = () => {
                             setColor('#fff');
                         }}
                         activeStyle={{ backgroundColor: "#175793", borderRadius: 0 }}
-                        to='/tutorials'
+                        to='/project/tutorials'
                     >
                         Tutorials
                     </Button>
@@ -257,12 +272,12 @@ const ProjectNav = () => {
                             setColor('#fff');
                         }}
                         activeStyle={{ backgroundColor: "#175793", borderRadius: 0 }}
-                        to='/manager'
+                        to='/project/manager'
                     >
                         Project Manager
                     </Button>
                     <Button
-                        startIcon={<NotificationsActiveIcon />}
+                        startIcon={<ArrowBackIosIcon />}
                         className={classes.navButton}
                         component={NavLink}
                         onClick={() => {
@@ -270,9 +285,10 @@ const ProjectNav = () => {
                             setColor('#fff');
                         }}
                         activeStyle={{ backgroundColor: "#175793", borderRadius: 0 }}
-                        to='/notification'
+                        to='/ProjectSelection'
+                        onClick={()=>{removeCookieName()}}
                     >
-                        Notification
+                        Back
                     </Button>
                 </Box>
                 <Divider />
@@ -284,23 +300,17 @@ const ProjectNav = () => {
             >
 
                 <Switch>
-                    {/* <Route exact path='/'>
-                        <div>Hello World</div>
-                    </Route> */}
-                    <Route exact path='/tasks'>
-                        <div>Tasks</div>
+                    <Route path='/project/tasks/:nameProject'>
+                        <TaskBoard name={nameProject}/>
                     </Route>
-                    <Route path='/tools'>
-                        <div>Tools</div>
+                    <Route path='/project/tools'>
+                        <Tool/>
                     </Route>
-                    <Route path='/tutorials'>
+                    <Route path='/project/tutorials'>
                         <div>Tutorials</div>
                     </Route>
-                    <Route path='/manager'>
+                    <Route path='/project/manager'>
                         <div>Project Manager</div>
-                    </Route>
-                    <Route path='/notification'>
-                        <div>Notification</div>
                     </Route>
                 </Switch>
 

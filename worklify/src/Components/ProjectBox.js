@@ -34,14 +34,15 @@ const useStyles = makeStyles((theme) => ({
 
 const ProjectBox = ({name, desc}) => {
     const classes = useStyles();
-    const {currentUser} = useAuth();
+    const {setCookieName} = useAuth();
     return (
         <div className={classes.projectCard}>
             <Button
                 variant="contained"
                 style={{ width: '100%', height: '100%', backgroundColor: '#fff', border: '1px solid #555' }}
                 component={Link}
-                to={"/project/" + name}
+                to= {"/project/tasks/" + name}
+                onClick={()=>{setCookieName(name)}}
             >
                 <div className={classes.projectBox}>
                     <div>

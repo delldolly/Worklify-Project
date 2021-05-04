@@ -2,7 +2,8 @@ import React from 'react';
 import {
     Switch,
     Route,
-    NavLink
+    useLocation,
+    NavLink,matchPath
 } from "react-router-dom";
 
 // Material UI
@@ -20,6 +21,7 @@ import Home from '../../pages/Home';
 import Login from '../../pages/Login';
 import Signup from '../../pages/Signup';
 import ProjectSelection from '../../pages/ProjectSelection';
+import { useAuth } from "../../contexts/AuthContext"
 
 const useStyles = makeStyles((theme) => ({
     nav: {
@@ -49,9 +51,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Navbar = () => {
+    const {currentUser} = useAuth();
     const classes = useStyles();
-
+    const location = useLocation();
+    console.log(location)
+    
+    const match = matchPath(location.pathname,{path:"/project/"})
+    // console.log(match)
     return (
+        <>
+        {match == null ?(
         <div className={classes.nav}>
             <CssBaseline />
             <AppBar
@@ -70,8 +79,7 @@ const Navbar = () => {
                             p={1}
                             style={{ height: "45px", outline: 0 }}
                             component={NavLink}
-                            to='/'
-                            exact
+                            to={currentUser ? "/ProjectSelection" : "/"}
                         >
                             <img
                                 src={logo}
@@ -85,7 +93,7 @@ const Navbar = () => {
                             alignItems="center"
                         >
                             <Box className="Navbar-user" px={2}>
-                                User
+                                {currentUser.displayName}
                                 {/* { condition ? 'User' : 'Sign up' } */}
                             </Box>
                             <Box className="Navber-logout" px={2}>
@@ -115,7 +123,8 @@ const Navbar = () => {
                 </Switch>
 
             </main>
-        </div>
+        </div>) : <></>}
+        </>
     );
 }
 

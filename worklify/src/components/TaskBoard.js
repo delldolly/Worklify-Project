@@ -5,9 +5,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import {useParams} from "react-router-dom"
 
-const TaskBoard = () => {
-  const {name} = useParams();
-  console.log(name)
+const TaskBoard = ({name}) => {
   const { currentUser } = useAuth();
   const [data, setData] = useState({
     lanes: [],
