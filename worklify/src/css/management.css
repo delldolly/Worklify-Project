@@ -1,0 +1,22 @@
+.button-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.manage-btn {
+    color: #FFFFFF !important;
+    width: 25vmin;
+    border: 1vw;
+    font-size: 2vmin !important;
+}
+
+@media screen and (max-width: 959px) {
+    .manage-btn {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 599px) {
+}
