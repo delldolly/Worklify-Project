@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     padding: "3vmin",
     display: "inline-block",
-    [theme.breakpoints.down(560)]: {
+    [theme.breakpoints.down(600)]: {
       width: '100vw'
     }
   },
@@ -64,6 +64,9 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "10px",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+    [theme.breakpoints.down(900)]: {
+        width: "90%",
+    },
   },
   modalForm: {
     display: "flex",

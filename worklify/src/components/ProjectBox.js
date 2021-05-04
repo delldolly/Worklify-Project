@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'inline-block',
         whiteSpace: 'normal',
         wordBreak: 'break-all',
-        [theme.breakpoints.down(560)]: {
+        [theme.breakpoints.down(600)]: {
           width: '100vw'
         }
     },
