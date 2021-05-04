@@ -9,31 +9,35 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { useAuth } from "../contexts/AuthContext";
 import { makeStyles } from '@material-ui/core/styles';
+import { useHistory } from "react-router-dom";
+import { useSnackbar } from 'notistack';
+import { render } from "@testing-library/react";
 
 const useStyles = makeStyles((theme) => ({
   containerStyle: {
-      height: 'calc(100vh - 64px)',
-      paddingTop: '3vmin',
-      paddingBottom: '3vmin',
-      overflow: 'auto',
+    height: 'calc(100vh - 64px)',
+    paddingTop: '3vmin',
+    paddingBottom: '3vmin',
+    overflow: 'auto',
   },
   typographyStyle: {
-      height: '100%',
-      padding: '3vmin 0',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      flexDirection: 'column',
+    height: '100%',
+    padding: '3vmin 0',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
   },
 }));
 
 const Signup = () => {
   const classes = useStyles();
-
+  const history = useHistory();
   const { signup } = useAuth();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const handleSubmitSignup = async (e) => {
     e.preventDefault();
     try {
@@ -41,10 +45,31 @@ const Signup = () => {
       setName("");
       setEmail("");
       setPassword("");
-      alert("Signup Success");
+      successClick("Signup Success");
+      history.push("/ProjectSelection");
     } catch (error) {
-      alert(error);
+      errorClick(error.message);
     }
+  };
+
+  const successClick = (message) => {
+    enqueueSnackbar(message, {
+      variant: 'success',
+      anchorOrigin: {
+        vertical: 'top',
+        horizontal: 'right',
+      }
+    });
+  };
+
+  const errorClick = (message) => {
+    enqueueSnackbar(message, {
+      variant: 'error',
+      anchorOrigin: {
+        vertical: 'top',
+        horizontal: 'right',
+      }
+    });
   };
 
   return (

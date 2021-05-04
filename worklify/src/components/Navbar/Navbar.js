@@ -26,6 +26,9 @@ import Signup from "../../pages/Signup";
 import ProjectSelection from "../../pages/ProjectSelection";
 import { useAuth } from "../../contexts/AuthContext";
 
+// alert
+import { SnackbarProvider } from 'notistack';
+
 const useStyles = makeStyles((theme) => ({
   nav: {
     display: "flex",
@@ -120,13 +123,19 @@ const Navbar = () => {
                 <Home />
               </Route>
               <Route path="/Login">
-                <Login />
+                <SnackbarProvider maxSnack={3}>
+                  <Login />
+                </SnackbarProvider>
               </Route>
               <Route path="/Signup">
-                <Signup />
+                <SnackbarProvider maxSnack={3}>
+                  <Signup />
+                </SnackbarProvider>
               </Route>
               <Route path="/ProjectSelection">
-                <ProjectSelection />
+                <SnackbarProvider maxSnack={3}>
+                  <ProjectSelection />
+                </SnackbarProvider>
               </Route>
             </Switch>
           </main>

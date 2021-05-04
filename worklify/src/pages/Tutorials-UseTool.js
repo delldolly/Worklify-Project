@@ -1,13 +1,14 @@
 import React from "react";
 import Container from "@material-ui/core/Container";
 import { ReactVideo } from "reactjs-media";
-import example from "./../video/example.webm";
+import example from "./../video/tutorial4.mp4";
 import poster from "./../image/poster4.png";
-import exampleImg from "./../image/example.png";
+import exampleImg from "./../image/tutor4.png";
 import Grid from "@material-ui/core/Grid";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import "./../css/Tutorial.css";
 
 const TutorialsUseTool = () => {
   return (
@@ -25,7 +26,7 @@ const TutorialsUseTool = () => {
         }}
       >
         <p style={{ fontWeight: "700", fontSize: "x-large" }}>
-          How to Create Task
+        Use a Tool
         </p>
       </div>
       <ReactVideo
@@ -35,17 +36,17 @@ const TutorialsUseTool = () => {
         // other props
       />
       <div>
-        <p style={{ fontWeight: "700", fontSize: "large" }}>
+        <p style={{ fontWeight: "700", fontSize: "large" }} className="thai-font">
           มาเริ่มลองใช้ Tool เสริมกันดีกว่า
         </p>
-        <span>
+        <span className="thai-font">
           &nbsp;&nbsp;&nbsp;&nbsp;ในการทำงานนั้น บางครั้งอาจจะต้องใช้ Tool
           บางอย่างในการช่วยทำงานให้เสร็จสมบูรณ์มากยิ่งขึ้น
           โดยในงานที่ต้องใส่รายละเอียดมากขึ้นอย่างพวกงานบัญชี หรืองาน Project
           ที่มีขนาดใหญ่อาจจะจำเป็นต้องใช้ Tool
           บางอย่างเพื่อให้งานเรียบร้อยมากยิ่งขึ้น โดย Tool ในเว็บมีดังต่อไปนี้
         </span>
-        <ul>
+        <ul className="thai-font">
           <li> 1. Calculator เครื่องคิดเลขช่วยคุณคำนวณอะไรยากๆได้ในทีเดียว</li>
           <li> 2. Execel ช่องตารางที่ช่วยคุณทำงานเอกสารอย่างรวดเร็ว</li>
           <li> 3. NotePad ตัวเลือกที่ช่วยคุณจดบันทึกในสิ่งที่สำคัญของคุณ</li>
@@ -56,13 +57,13 @@ const TutorialsUseTool = () => {
           <img src={exampleImg} style={{ width: "100%" }} />
         </Grid>
         <Grid item xs={12} md={8} lg={8}>
-          <p style={{ fontWeight: "700" }}>แล้วเราสามารถใช้ Tool ได้อย่างไร?</p>
-          <span>
+          <p style={{ fontWeight: "700" }} className="thai-font">แล้วเราสามารถใช้ Tool ได้อย่างไร?</p>
+          <span className="thai-font">
             &nbsp;&nbsp;&nbsp;&nbsp;หลังจากที่ได้แนะนำ Tool ไปแล้วนั้น
             เรามาดูกันดีกว่าจะสามารถเข้าถึง Tool เหล่านี้ได้อย่างไร?
             โดยคุณสามารถปฎิบัติตามได้ง่ายๆ ดังต่อไปนี้
           </span>
-          <ul>
+          <ul className="thai-font">
             <li> 1. กดเปิด Menu ด้านข้างขึ้นมา</li>
             <li> 2. กดเลือก Tools เพื่อดูหน้าแสดง Tools ทั้งหมด</li>
             <li>

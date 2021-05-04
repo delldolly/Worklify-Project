@@ -1,13 +1,14 @@
 import React from "react";
 import Container from "@material-ui/core/Container";
 import { ReactVideo } from "reactjs-media";
-import example from "./../video/example.webm";
+import example from "./../video/tutorial1.mp4";
 import poster from "./../image/poster.png";
-import exampleImg from "./../image/example.png";
+import exampleImg from "./../image/tutor1.png";
 import Grid from "@material-ui/core/Grid";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import "./../css/Tutorial.css";
 
 const TutorialsLearn = () => {
   return (
@@ -35,15 +36,15 @@ const TutorialsLearn = () => {
         // other props
       />
       <div>
-        <p style={{ fontWeight: "700", fontSize: "large" }}>
+        <p style={{ fontWeight: "700", fontSize: "large" }} className="thai-font">
           วิธีการเริ่มต้นใช้เว็บ
         </p>
-        <span>
+        <span className="thai-font">
           &nbsp;&nbsp;&nbsp;&nbsp;ยินดีต้อนรับเข้าสู่ Worklify
           เว็บสำหรับจัดการงาน และจัดระเบียบงานให้ง่ายดายยิ่งขึ้น
           มาเรียนรู้ใช้งานเว็บเริ่มต้น ดังต่อไปนี้
         </span>
-        <ul>
+        <ul className="thai-font">
           <li> 1. กด Sign up ในหน้า Home เพื่อสมัครสมาชิก</li>
           <li> 2. กรอกข้อมูลให้ครบถ้วน และกดยืนยัน</li>
           <li>
@@ -62,17 +63,17 @@ const TutorialsLearn = () => {
           <img src={exampleImg} style={{ width: "100%" }} />
         </Grid>
         <Grid item xs={12} md={8} lg={8}>
-          <p style={{ fontWeight: "700" }}>
+          <p style={{ fontWeight: "700" }} className="thai-font">
             วิธีเริ่มสร้าง Project ด้วยตัวคุณเอง
           </p>
-          <span>
+          <span className="thai-font">
             &nbsp;&nbsp;&nbsp;&nbsp;หลังจากที่คุณมีบัญชีสำหรับการเข้าสู่ระบบเรียบร้อยแล้วนั้น
             ขั้นตอนต่อไปที่สำคัญคือ "การสร้าง Project"
             ซึ่งวิธีการสร้างนั้นแสนง่ายดาย
             เพียงแค่หลังจากคุณมีโปรเจคคุณจะเข้ามาหน้า Project Management
             (จัดการโปรเจค) และปฏิบัติตามขั้นตอนต่อไปนี้
           </span>
-          <ul>
+          <ul className="thai-font">
             <li> 1. กด + เพื่อเพิ่ม Project</li>
             <li> 2. ตั้งชื่อ Project ของคุณตามที่ต้องการ</li>
             <li> 3. ใส่คำอธิบายเล็กน้อย สำหรับรายละเอียดของ Project คุณ</li>

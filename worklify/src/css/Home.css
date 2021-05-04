@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+
+.thai-font{
+    font-family: 'Kanit', sans-serif;
+}
+
 :root{
     --color1 : #5485A0;
     --color2 : #175793;

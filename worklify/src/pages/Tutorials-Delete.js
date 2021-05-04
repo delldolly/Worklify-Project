@@ -1,13 +1,14 @@
 import React from "react";
 import Container from "@material-ui/core/Container";
 import { ReactVideo } from "reactjs-media";
-import example from "./../video/example.webm";
+import example from "./../video/tutorial3.mp4";
 import poster from "./../image/poster3.png";
-import exampleImg from "./../image/example.png";
+import exampleImg from "./../image/tutor3.png";
 import Grid from "@material-ui/core/Grid";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import "./../css/Tutorial.css";
 
 const TutorialsDelete = () => {
   return (
@@ -24,7 +25,7 @@ const TutorialsDelete = () => {
           marginTop: "0.5rem",
         }}
       >
-        <p style={{ fontWeight: "700", fontSize: "x-large" }}>Delete a task</p>
+        <p style={{ fontWeight: "700", fontSize: "x-large" }} className="thai-font">Delete a task</p>
       </div>
       <ReactVideo
         src={example}
@@ -33,15 +34,15 @@ const TutorialsDelete = () => {
         // other props
       />
       <div>
-        <p style={{ fontWeight: "700", fontSize: "large" }}>
+        <p style={{ fontWeight: "700", fontSize: "large" }} className="thai-font">
           หากต้องการลบ "หัวข้อ" หรือ lane ทิ้งจะทำอย่างไร?
         </p>
-        <span>
+        <span className="thai-font">
           &nbsp;&nbsp;&nbsp;&nbsp;ขณะที่คุณกำลังทำงาน คุณอาจจะรู้สึกว่าเพิ่ม
           "หัวข้อ" มาเยอะเกินไป หรืองานที่ทำภายในหัวข้อนั้นเสร็จครบหมดแล้ว
           และต้องการปิดหัวข้อนั้นทิ้ง สามารถทำได้ ดังต่อไปนี้
         </span>
-        <ul>
+        <ul className="thai-font">
           <li> 1. กดไอค่อนจุดสามจุดที่อยู่บริเวณขวาบนของหัวข้อนั้น</li>
           <li> 2. กด Delete Lene เพื่อลบหัวข้อ</li>
           <li>
@@ -56,13 +57,13 @@ const TutorialsDelete = () => {
           <img src={exampleImg} style={{ width: "100%" }} />
         </Grid>
         <Grid item xs={12} md={8} lg={8}>
-          <p style={{ fontWeight: "700" }}>ถ้าหากอยากลบแค่งานล่ะ?</p>
-          <span>
+          <p style={{ fontWeight: "700" }} className="thai-font">ถ้าหากอยากลบแค่งานล่ะ?</p>
+          <span className="thai-font">
             &nbsp;&nbsp;&nbsp;&nbsp;หลังจากที่ได้เรียนรู้วิธีการลบหัวข้อไปแล้วนั้น
             หากคุณต้องการลบแค่งานทิ้งภายใน "หัวข้อ" นั้นง่ายยิ่งกว่า
             โดยปฎิบัติดังต่อไปนี้
           </span>
-          <ul>
+          <ul className="thai-font">
             <li> 1. กด x ตรงมุมขวาบนของงานนั้น</li>
             <li>
               {" "}

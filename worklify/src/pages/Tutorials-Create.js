@@ -1,13 +1,15 @@
 import React from "react";
 import Container from "@material-ui/core/Container";
 import { ReactVideo } from "reactjs-media";
-import example from "./../video/example.webm";
+import example from "./../video/tutorial2.mp4";
 import poster from "./../image/poster2.png";
-import exampleImg from "./../image/example.png";
+import exampleImg from "./../image/tutor2.png";
 import Grid from "@material-ui/core/Grid";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import "./../css/Tutorial.css";
+
 const TutorialsCreate = () => {
   return (
     <Container maxWidth="md" style={{ marginTop: "4rem" }}>
@@ -23,7 +25,7 @@ const TutorialsCreate = () => {
           marginTop: "0.5rem",
         }}
       >
-        <p style={{ fontWeight: "700", fontSize: "x-large" }}>
+        <p style={{ fontWeight: "700", fontSize: "x-large" }} className="thai-font">
           How to Create Task
         </p>
       </div>
@@ -34,15 +36,15 @@ const TutorialsCreate = () => {
         // other props
       />
       <div>
-        <p style={{ fontWeight: "700", fontSize: "large" }}>
+        <p style={{ fontWeight: "700", fontSize: "large" }} className="thai-font">
           มาเริ่มสร้าง Task ครั้งแรกกันดีกว่า
         </p>
-        <span>
+        <span className="thai-font">
           &nbsp;&nbsp;&nbsp;&nbsp;สำหรับการสร้าง Task นั้น เมื่อคุณเข้ามาใน
           Projext ตัวเองจะเห็นหน้าโล่งๆแบบดังวิดิโอ อย่างแรกคุณต้องสร้าง
           "หัวข้อ" ในการจัดลำดับการทำงานขึ้นมาก่อน ดังต่อไปนี้
         </span>
-        <ul>
+        <ul className="thai-font">
           <li> 1. กด + เพื่อสร้าง "หัวข้อ" ของงานแต่ละอย่าง</li>
           <li>
             {" "}
@@ -57,15 +59,15 @@ const TutorialsCreate = () => {
           <img src={exampleImg} style={{ width: "100%" }} />
         </Grid>
         <Grid item xs={12} md={8} lg={8}>
-          <p style={{ fontWeight: "700" }}>วิธีสร้างงานภายในหัวข้อ</p>
-          <span>
+          <p style={{ fontWeight: "700" }} className="thai-font">วิธีสร้างงานภายในหัวข้อ</p>
+          <span className="thai-font">
             &nbsp;&nbsp;&nbsp;&nbsp;หลังจากที่คุณมีหัวข้อ หรือ lane แล้วนั้น
             ต่อไปจะเป็นวิธีการสร้างงานภายในหัวข้อของคุณ
             โดยงานนั้นจะเป็นหัวข้อแยกย่อยที่เกิดขึ้น เช่น หาก "หัวข้อ"
             คือการซักผ้า งานแยกย่อยที่เกิดขึ้นจะมี 1.เตรียมผงซักผอก 2.ขยี้ผ้า
             3.ล้างน้ำสะอาด เป็นต้น ทำได้ดังวิธีนี้
           </span>
-          <ul>
+          <ul className="thai-font">
             <li> 1. กด Click to add card (card จะเป็นงานที่เราต้องการเพิ่ม)</li>
             <li>
               {" "}
