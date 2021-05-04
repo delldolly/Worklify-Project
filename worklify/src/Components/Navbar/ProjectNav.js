@@ -133,7 +133,7 @@ const ProjectNav = () => {
     const [open, setOpen] = useState(false);
     // const [nameProject, setNameProject] = useState("")
     const [page, setPage] = useState('');
-    const { nameProject, removeCookieName } = useAuth();
+    const { nameProject, removeCookieName,logout } = useAuth();
 
     const [menu, setMenu] = React.useState(null);
 
@@ -142,6 +142,7 @@ const ProjectNav = () => {
     };
 
     const menuClose = () => {
+        logout();
         setMenu(null);
     };
 

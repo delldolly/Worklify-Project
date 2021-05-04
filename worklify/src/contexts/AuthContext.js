@@ -1,16 +1,15 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { auth } from "../firebase";
 import { useCookies } from "react-cookie";
-
+ 
 const AuthContext = createContext();
 
 export const AuthProvider = (props) => {
   const { children } = props;
-  // const [currentUser, setCurrentUser] = useState(null);
-  
-  const [cookie, setCookie, removeCookie] = useCookies(["user","project"]);
+  const [cookie, setCookie, removeCookie] = useCookies(["user","project","page"]);
   const userData = cookie.user;
-  const nameProject = cookie.project
+  const nameProject = cookie.project;
+  const pageLocation = cookie.page
   const signup = (name, email, password) => {
     return auth.createUserWithEmailAndPassword(email, password).then((cred) => {
       cred.user.updateProfile({
@@ -20,9 +19,21 @@ export const AuthProvider = (props) => {
   };
   
   const login = (email, password) => {
+    setCookie("page","login",{
+      maxAge: 86400,
+      path: "/",
+    })
     return auth.signInWithEmailAndPassword(email, password);
   };
 
+  const logout = () => {
+    setCookie("page","logout",{
+      maxAge: 86400,
+      path: "/",
+    })
+    
+    return auth.signOut().then(()=>{removeCookie('user',{maxAge: 86400}); window.location.href="/"});
+  }
   const setCookieName = (name) =>{
     setCookie("project",name,{
       maxAge: 86400,
@@ -36,17 +47,17 @@ export const AuthProvider = (props) => {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      console.log(user);
+      console.log("user : ", user);
       setCookie("user",user, {
         maxAge: 86400,
         path: "/",
       })
-      console.log(userData)
+      console.log("userData: ",userData)
     });
     return unsubscribe;
   }, []);
   return (
-    <AuthContext.Provider value={{ currentUser: userData, nameProject , signup, login, setCookieName,removeCookieName }}>
+    <AuthContext.Provider value={{ currentUser: userData,pageLocation, nameProject , signup, login,logout, setCookieName,removeCookieName }}>
       {children}
     </AuthContext.Provider>
   );
