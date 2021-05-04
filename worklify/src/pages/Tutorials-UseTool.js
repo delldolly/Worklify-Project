@@ -5,11 +5,13 @@ import example from "./../video/example.webm";
 import poster from "./../image/poster4.png";
 import exampleImg from "./../image/example.png";
 import Grid from '@material-ui/core/Grid';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 const TutorialsCreate = () => {
     return (
-        <Container maxWidth="md">
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'left', marginTop: '2rem' }}>
+        <Container maxWidth="md" style={{marginTop:'4rem'}}>
+            <ArrowBackIosIcon style={{cursor:'pointer'}}></ArrowBackIosIcon>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'left', marginTop: '0.5rem' }}>
                 <p style={{ fontWeight: '700', fontSize: "x-large" }}>How to Create Task</p>
             </div>
             <ReactVideo

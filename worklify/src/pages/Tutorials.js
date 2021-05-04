@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 
 const Tutorials = () => {
     return (
-        <Container fixed>
+        <Container fixed style={{marginTop:'4rem'}}>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <p style={{ fontWeight: '700', fontSize: "x-large" }}>Welcome to Learning Tutorials</p>
                 <span>This is tuterials for the starter user</span>
