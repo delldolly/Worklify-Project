@@ -16,7 +16,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import logo from '../../img/Logo.png';
 
 // Page Component
-import Home from '../../pages/Home';
+import ProjectSelection from '../../pages/ProjectSelection';
 
 const useStyles = makeStyles((theme) => ({
     nav: {
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
         ...theme.mixins.toolbar,
         justifyContent: 'flex-end',
     },
-    contentHome: {
+    contentProjectSelection: {
         flexGrow: 1,
         padding: 0,
         marginTop: '64px',
@@ -94,11 +94,11 @@ const Navbar = () => {
                 </Toolbar>
             </AppBar>
 
-            <main className={classes.contentHome}>
+            <main className={classes.contentProjectSelection}>
                 
                 <Switch>
                     <Route exact path='/'>
-                        <Home />
+                        <ProjectSelection />
                     </Route>
                 </Switch>
 

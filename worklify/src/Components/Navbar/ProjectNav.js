@@ -284,10 +284,10 @@ const ProjectNav = () => {
             >
 
                 <Switch>
-                    <Route exact path='/'>
+                    {/* <Route exact path='/'>
                         <div>Hello World</div>
-                    </Route>
-                    <Route path='/tasks'>
+                    </Route> */}
+                    <Route exact path='/tasks'>
                         <div>Tasks</div>
                     </Route>
                     <Route path='/tools'>
