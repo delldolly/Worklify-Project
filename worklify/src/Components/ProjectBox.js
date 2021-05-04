@@ -11,17 +11,21 @@ import { useAuth } from "../contexts/AuthContext"
 
 const useStyles = makeStyles((theme) => ({
     projectCard: {
-        width: '400px',
+        width: '50vmin',
         height: '100%',
         padding: '3vmin',
         display: 'inline-block',
         whiteSpace: 'normal',
         wordBreak: 'break-all',
+        [theme.breakpoints.down(560)]: {
+          width: '100vw'
+        }
     },
     projectBox: {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
+        alignItems: 'center',
         '& h4': {
             margin: 0,
             wordWrap: 'break-word',
@@ -45,7 +49,7 @@ const ProjectBox = ({name, desc}) => {
                 onClick={()=>{setCookieName(name)}}
             >
                 <div className={classes.projectBox}>
-                    <div>
+                    <div style={{ textAlign: 'center' }}>
                         <img src={img} alt="img" width="60%" />
                     </div>
                     <h1>{name}</h1>

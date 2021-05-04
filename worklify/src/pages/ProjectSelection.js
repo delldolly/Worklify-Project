@@ -40,10 +40,13 @@ const useStyles = makeStyles((theme) => ({
     "-webkit-overflow-scrolling": "touch",
   },
   addBtnBox: {
-    width: "400px",
+    width: "50vmin",
     height: "100%",
     padding: "3vmin",
     display: "inline-block",
+    [theme.breakpoints.down(560)]: {
+      width: '100vw'
+    }
   },
   addBtn: {
     width: "100%",

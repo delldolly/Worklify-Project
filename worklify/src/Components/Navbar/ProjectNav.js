@@ -1,4 +1,4 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import {
     Switch,
     Route,
@@ -20,6 +20,8 @@ import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 
 // icon
 import MenuIcon from '@material-ui/icons/Menu';
@@ -59,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
-        backgroundColor: 'transparent',
+        backgroundColor: '#fff',
     },
     appBarShift: {
         width: `calc(100% - ${drawerWidth}px)`,
@@ -124,15 +126,24 @@ const useStyles = makeStyles((theme) => ({
 
 const ProjectNav = () => {
     const location = useLocation();
-    
+
     // const nameProject = location.state.name
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = useState(false);
     // const [nameProject, setNameProject] = useState("")
     const [page, setPage] = useState('');
-    const [color, setColor] = useState('#fff');
-    const { nameProject,removeCookieName } = useAuth();
+    const { nameProject, removeCookieName } = useAuth();
+
+    const [menu, setMenu] = React.useState(null);
+
+    const menuClick = (event) => {
+        setMenu(event.currentTarget);
+    };
+
+    const menuClose = () => {
+        setMenu(null);
+    };
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -172,11 +183,32 @@ const ProjectNav = () => {
                         <Typography variant="h5" gutterBottom style={{ color: '#000' }}>
                             {page}
                         </Typography>
-                        <Avatar 
-                            src={proflie}
-                            alt="Remy Sharp"
-                            style={{ border: "2px solid #222" }}
-                        />
+                        <Button aria-controls="fade-menu" aria-haspopup="true" onClick={menuClick}>
+                            <Avatar
+                                src={proflie}
+                                alt="Remy Sharp"
+                                style={{ border: "2px solid #222" }}
+                            />
+                        </Button>
+                        <Menu
+                            id="user-menu"
+                            anchorEl={menu}
+                            keepMounted
+                            open={Boolean(menu)}
+                            onClose={menuClose}
+                            getContentAnchorEl={null}
+                            anchorOrigin={{
+                              vertical: 'bottom',
+                              horizontal: 'right',
+                            }}
+                            transformOrigin={{
+                              vertical: 'top',
+                              horizontal: 'right',
+                            }}
+                        >
+                            <MenuItem onClick={menuClose}>Log out</MenuItem>
+                        </Menu>
+
                     </Box>
                 </Toolbar>
             </AppBar>
@@ -230,10 +262,9 @@ const ProjectNav = () => {
                         component={NavLink}
                         onClick={() => {
                             setPage('');
-                            setColor('#fff');
                         }}
                         activeStyle={{ backgroundColor: "#175793", borderRadius: 0 }}
-                        to= {`/project/tasks/${nameProject}`}
+                        to={`/project/tasks/${nameProject}`}
                     >
                         All Tasks
                     </Button>
@@ -243,7 +274,6 @@ const ProjectNav = () => {
                         component={NavLink}
                         onClick={() => {
                             setPage('Tools and Utilities');
-                            setColor('#5485A0');
                         }}
                         activeStyle={{ backgroundColor: "#175793", borderRadius: 0 }}
                         to='/project/tools'
@@ -256,7 +286,6 @@ const ProjectNav = () => {
                         component={NavLink}
                         onClick={() => {
                             setPage('Tutorials');
-                            setColor('#fff');
                         }}
                         activeStyle={{ backgroundColor: "#175793", borderRadius: 0 }}
                         to='/project/tutorials'
@@ -269,7 +298,6 @@ const ProjectNav = () => {
                         component={NavLink}
                         onClick={() => {
                             setPage('Project Management');
-                            setColor('#fff');
                         }}
                         activeStyle={{ backgroundColor: "#175793", borderRadius: 0 }}
                         to='/project/manager'
@@ -282,11 +310,10 @@ const ProjectNav = () => {
                         component={NavLink}
                         onClick={() => {
                             setPage('Notification');
-                            setColor('#fff');
                         }}
                         activeStyle={{ backgroundColor: "#175793", borderRadius: 0 }}
                         to='/ProjectSelection'
-                        onClick={()=>{removeCookieName()}}
+                        onClick={() => { removeCookieName() }}
                     >
                         Back
                     </Button>
@@ -301,10 +328,10 @@ const ProjectNav = () => {
 
                 <Switch>
                     <Route path='/project/tasks/:nameProject'>
-                        <TaskBoard name={nameProject}/>
+                        <TaskBoard name={nameProject} />
                     </Route>
                     <Route path='/project/tools'>
-                        <Tool/>
+                        <Tool />
                     </Route>
                     <Route path='/project/tutorials'>
                         <div>Tutorials</div>

@@ -12,6 +12,7 @@ import Box from '@material-ui/core/Box';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import Button from '@material-ui/core/Button';
 
 // Image
 import logo from '../../image/Logo.png';
@@ -47,6 +48,10 @@ const useStyles = makeStyles((theme) => ({
         padding: 0,
         marginTop: '64px',
         width: '100vw',
+    },
+    logOutBtn: {
+        color: '#fff',
+        textTransform: 'capitalize',
     },
 }));
 
@@ -94,11 +99,11 @@ const Navbar = () => {
                         >
                             <Box className="Navbar-user" px={2}>
                                 {currentUser.displayName}
-                                {/* { condition ? 'User' : 'Sign up' } */}
                             </Box>
-                            <Box className="Navber-logout" px={2}>
-                                Log out
-                                {/* { condition ? 'Log out' : 'Login' } */}
+                            <Box className="Navber-logout"px={2}>
+                                <Button className={classes.logOutBtn} >
+                                    Log out
+                                </Button>
                             </Box>
                         </Box>
                     </Box>
