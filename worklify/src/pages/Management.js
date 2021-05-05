@@ -59,12 +59,13 @@ const useStyles = makeStyles((theme) => ({
       height: "60vmin",
     },
   },
-  addModal: {
+  showModal: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    outline: 0,
   },
-  modalPaper: {
+  editModalPaper: {
     width: "50%",
     backgroundColor: theme.palette.background.paper,
     borderRadius: "10px",
@@ -85,6 +86,39 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     margin: theme.spacing(2, 1),
   },
+  deleteModalPaper: {
+    width: "40%",
+    backgroundColor: theme.palette.background.paper,
+    borderRadius: "10px",
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+    [theme.breakpoints.down(1200)]: {
+      width: "60%",
+    },
+    [theme.breakpoints.down(900)]: {
+      width: "80%",
+    },
+    [theme.breakpoints.down(600)]: {
+      width: "90%",
+    },
+  },
+  deleteBtnBox: {
+    width: 'auto',
+    padding: '1.5vmin 0',
+    display: 'flex',
+    flexDirection:'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    [theme.breakpoints.down(600)]: {
+      justifyContent: 'space-around',
+    },
+  },
+  selectBtn: {
+    width: '15vmin',
+    [theme.breakpoints.down(600)]: {
+      width: '40%',
+    },
+  },
 }));
 
 const Management = () => {
@@ -92,19 +126,31 @@ const Management = () => {
   const { currentUser, nameProject, removeCookieName } = useAuth();
   const [projectName, setProjectName] = useState("");
   const [desc, setDesc] = useState("");
-  const [modalopen, setModalopen] = useState(false);
+  const [editModalopen, setEditModalopen] = useState(false);
+  const [deleteModalopen, setDeleteModalopen] = useState(false);
 
-  // const handleOpen = () => {
-  //   setModalopen(true);
+  // Edit modal
+  // const handleEditOpen = () => {
+  //   setEditModalopen(true);
   // };
-  const handleClose = () => {
-    setModalopen(false);
+  const handleEditClose = () => {
+    setEditModalopen(false);
   };
+
+  // Delete modal
+  const handleDeleteOpen = () => {
+    setDeleteModalopen(true);
+  };
+  const handleDeleteClose = () => {
+    setDeleteModalopen(false);
+  };
+
   const handleDeleteProject = () => {
     database.ref("users/" + currentUser.uid + "/" + nameProject).set(null);
     removeCookieName();
   };
-  const handleEditProject = () => {};
+
+  const handleEditProject = () => { };
 
   useEffect(() => {
     database
@@ -114,7 +160,7 @@ const Management = () => {
         setProjectName(snapshot.val().name);
         setDesc(snapshot.val().description);
       });
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentUser]);
 
   return (
@@ -147,7 +193,7 @@ const Management = () => {
                   style={{
                     backgroundColor: "#5485A0",
                   }}
-                  onClick={handleOpen}
+                  onClick={handleEditOpen}
                 >
                   EDIT PROJECT
                 </Button> */}
@@ -156,31 +202,29 @@ const Management = () => {
                   className="manage-btn"
                   style={{
                     backgroundColor: "#175793",
-                    marginLeft: "1vw",
+                    // marginLeft: "1vw",
                   }}
-                  component={Link}
-                  onClick={handleDeleteProject}
-                  to="/ProjectSelection"
+                  onClick={handleDeleteOpen}
                 >
                   DELELE PROJECT
                 </Button>
               </div>
 
-              {/* Modal */}
+              {/* Edit Modal */}
               <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
-                className={classes.addModal}
-                open={modalopen}
-                onClose={handleClose}
+                className={classes.showModal}
+                open={editModalopen}
+                onClose={handleEditClose}
                 closeAfterTransition
                 BackdropComponent={Backdrop}
                 BackdropProps={{
                   timeout: 500,
                 }}
               >
-                <Fade in={modalopen}>
-                  <div className={classes.modalPaper}>
+                <Fade in={editModalopen}>
+                  <div className={classes.editModalPaper}>
                     <h2>Edit project</h2>
                     <form
                       noValidate
@@ -216,6 +260,49 @@ const Management = () => {
                   </div>
                 </Fade>
               </Modal>
+              {/* End edit modal */}
+
+              {/* Delete Modal */}
+              <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                className={classes.showModal}
+                open={deleteModalopen}
+                onClose={handleDeleteClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                  timeout: 500,
+                }}
+              >
+                <Fade in={deleteModalopen}>
+                  <div className={classes.deleteModalPaper}>
+                    <h2>Are you sure to <span style={{ color: '#f50057' }}>delete</span> your project ?</h2>
+                    <div className={classes.deleteBtnBox}>
+                      <Button
+                        variant="contained"
+                        color="secondary"
+                        className={classes.selectBtn}
+                        style={{ marginRight: '2vmin' }}
+                        component={Link}
+                        to="/ProjectSelection"
+                        onClick={handleDeleteProject}
+                      >
+                        Yes
+                      </Button>
+                      <Button
+                        variant="contained"
+                        className={classes.selectBtn}
+                        onClick={handleDeleteClose}
+                      >
+                        No
+                      </Button>
+                    </div>
+                  </div>
+                </Fade>
+              </Modal>
+              {/* End delete */}
+
             </div>
           </Grid>
 
