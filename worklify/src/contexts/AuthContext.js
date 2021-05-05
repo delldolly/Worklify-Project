@@ -65,6 +65,7 @@ export const AuthProvider = (props) => {
       console.log("userData: ", userData);
     });
     return unsubscribe;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <AuthContext.Provider
