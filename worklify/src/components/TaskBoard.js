@@ -43,7 +43,8 @@ const TaskBoard = ({ name }) => {
     } else {
       return data;
     }
-  }, [currentUser, data, name]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>

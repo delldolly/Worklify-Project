@@ -114,7 +114,8 @@ const Management = () => {
         setProjectName(snapshot.val().name);
         setDesc(snapshot.val().description);
       });
-  }, [currentUser, nameProject]);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentUser]);
 
   return (
     <div className={classes.containerStyle}>

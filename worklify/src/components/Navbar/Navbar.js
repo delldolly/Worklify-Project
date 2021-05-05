@@ -70,7 +70,8 @@ const Navbar = () => {
   const match = matchPath(location.pathname, { path: "/project/" });
   useEffect(() => {
     console.log(pageLocation, currentUser);
-  }, [pageLocation, currentUser]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pageLocation]);
 
   return (
     <>

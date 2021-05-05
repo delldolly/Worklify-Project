@@ -165,7 +165,8 @@ const ProjectSelection = () => {
         }
       }
     });
-  }, [currentUser]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div className={classes.home}>
       <div className={classes.projectSelected}>

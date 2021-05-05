@@ -65,7 +65,8 @@ const Notepad = () => {
           setNotes(snapshot.val());
         }
       });
-  }, [currentUser.uid, nameProject]);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   function deleteNote(id) {
     setNotes((prevNotes) => {
