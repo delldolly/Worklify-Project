@@ -24,7 +24,6 @@ import "../css/management.css";
 const useStyles = makeStyles((theme) => ({
   containerStyle: {
     height: "calc(100vh - 64px)",
-    width: '100vw',
     padding: "3vmin",
     overflow: "auto",
   },

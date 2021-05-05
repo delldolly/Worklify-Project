@@ -22,7 +22,6 @@ import '../css/tool.css';
 const useStyles = makeStyles((theme) => ({
   containerStyle: {
     height: 'calc(100vh - 64px)',
-    width: '100vw',
     paddingTop: '3vmin',
     paddingBottom: '3vmin',
     overflow: 'auto',
