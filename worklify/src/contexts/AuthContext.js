@@ -65,7 +65,7 @@ export const AuthProvider = (props) => {
       console.log("userData: ", userData);
     });
     return unsubscribe;
-  }, [setCookie, userData]);
+  }, []);
   return (
     <AuthContext.Provider
       value={{
