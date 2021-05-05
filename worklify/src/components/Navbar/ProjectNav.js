@@ -81,11 +81,13 @@ const useStyles = makeStyles((theme) => ({
   },
   drawer: {
     width: drawerWidth,
+    height: '100vh',
     flexShrink: 0,
     color: "#fff",
   },
   drawerPaper: {
     width: drawerWidth,
+    height: '100%',
     backgroundColor: "#5485A0",
     boxShadow: "3px 0px 15px 0px rgba(0,0,0,0.5)",
     overflowX: "hidden",
@@ -122,6 +124,30 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "flex-start",
     padding: "0.7rem 1.2rem",
     fontSize: "1rem",
+  },
+  navHeader: {
+    margin: 0,
+    color: '#000',
+    fontSize: '3.5vmin',
+    [theme.breakpoints.down(600)]: {
+      fontSize: '5vmin',
+    },
+  },
+  logout: {
+    [theme.breakpoints.down(600)]: {
+      paddingLeft: 0,
+      paddingRight: 0,
+      minWidth: '30px',
+    },
+  },
+  avatarBtn: {
+    border: "2px solid #222",
+    width: '35px',
+    height: '35px',
+    // [theme.breakpoints.down(600)]: {
+    //   width: '7vmin',
+    //   height: '7vmin',
+    // },
   },
 }));
 
@@ -174,24 +200,25 @@ const ProjectNav = () => {
           <Box
             display="flex"
             flexDirection="row"
+            alignItems="center"
             justifyContent="space-between"
-            // justifyContent="flex-end"
             m={1}
             style={{ width: "100%" }}
           >
             <div />
-            <Typography variant="h5" gutterBottom style={{ color: "#000" }}>
+            <Typography variant="h5" gutterBottom className={classes.navHeader}>
               {page}
             </Typography>
             <Button
               aria-controls="fade-menu"
               aria-haspopup="true"
+              className={classes.logout}
               onClick={menuClick}
             >
               <Avatar
                 src={proflie}
-                alt="Remy Sharp"
-                style={{ border: "2px solid #222" }}
+                alt="Tarwaan"
+                className={classes.avatarBtn}
               />
             </Button>
             <Menu

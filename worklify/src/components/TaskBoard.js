@@ -4,7 +4,19 @@ import { database } from "../firebase";
 import { useEffect, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  boardContainer: {
+    width: '100vw',
+    height: "calc(100vh - 64px)",
+    overflow: "auto",
+  },
+}));
+
 const TaskBoard = ({ name }) => {
+  const classes = useStyles();
+  
   const { currentUser } = useAuth();
   const [data, setData] = useState({
     lanes: [],
@@ -47,10 +59,10 @@ const TaskBoard = ({ name }) => {
   }, []);
 
   return (
-    <>
+    <div className={classes.boardContainer}>
       {/* {fetchData} */}
       <Board
-        style={{ height: "calc(100vh - 64px)" }}
+        style={{ height: "100%" }}
         data={data}
         editable
         draggable
@@ -63,7 +75,7 @@ const TaskBoard = ({ name }) => {
         }}
         //   eventBusHandle={setEventBus}
       />
-    </>
+    </div>
   );
 };
 

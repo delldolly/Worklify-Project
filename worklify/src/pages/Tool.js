@@ -35,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "Bold",
     paddingBottom: "1vw",
     fontSize: "4.2vmin",
+    [theme.breakpoints.down(600)]: {
+      fontSize: "4.8vmin",
+    },
   },
   buttonGrid: {
     display: "flex",
@@ -49,8 +52,8 @@ const useStyles = makeStyles((theme) => ({
   paperInner: {
     padding: theme.spacing(1),
     marginRight: theme.spacing(2),
+    color: "#000000",
     textAlign: "center",
-    color: theme.palette.text.secondary,
     backgroundColor: "#5485A0",
     [theme.breakpoints.down(767)]: {
       width: "100%",
@@ -61,8 +64,14 @@ const useStyles = makeStyles((theme) => ({
     padding: "0 2vmin",
     alignSelf: "center",
   },
+  toolTitle: {
+    color: "#000000", 
+    fontWeight: "Bold",
+  },
   goBtn: {
+    color: "#868686",
     textAlign: "center",
+    alignSelf: 'center',
     fontSize: "5vmin",
     padding: "1vmin 0",
   },
@@ -87,16 +96,15 @@ const Tool = () => {
               <Grid item xs={12} sm={12} md={2} className={classes.iconBox}>
                 <Paper className={classes.paperInner}>
                   <IoMdCalculator
-                    className="Toolsize"
-                    style={{ color: "#000000" }}
+                    className="tool-size"
                   />
                 </Paper>
               </Grid>
               <Grid item xs={10} sm={10} md={9} className={classes.toolDetail}>
-                <div className="Toolsize2">
+                <div className="tool-desc">
                   <Typography
                     variant="h5"
-                    style={{ color: "#000000", fontWeight: "Bold" }}
+                    className={classes.toolTitle}
                   >
                     Calculator
                   </Typography>
@@ -108,7 +116,7 @@ const Tool = () => {
                 </div>
               </Grid>
               <Grid item xs={2} sm={2} md={1} className={classes.goBtn}>
-                <GrNext style={{ color: "#868686" }} />
+                <GrNext />
               </Grid>
             </Grid>
           </Button>
@@ -122,16 +130,15 @@ const Tool = () => {
               <Grid item xs={12} sm={12} md={2} className={classes.iconBox}>
                 <Paper className={classes.paperInner}>
                   <FaFileExcel
-                    className="Toolsize"
-                    style={{ color: "#000000" }}
+                    className="tool-size"
                   />
                 </Paper>
               </Grid>
               <Grid item xs={10} sm={10} md={9} className={classes.toolDetail}>
-                <div className="Toolsize2">
+                <div className="tool-desc">
                   <Typography
                     variant="h5"
-                    style={{ color: "#000000", fontWeight: "Bold" }}
+                    className={classes.toolTitle}
                   >
                     Excel for list table
                   </Typography>
@@ -142,7 +149,7 @@ const Tool = () => {
                 </div>
               </Grid>
               <Grid item xs={2} sm={2} md={1} className={classes.goBtn}>
-                <GrNext style={{ color: "#868686" }} />
+                <GrNext />
               </Grid>
             </Grid>
           </Button>
@@ -156,16 +163,15 @@ const Tool = () => {
               <Grid item xs={12} sm={12} md={2} className={classes.iconBox}>
                 <Paper className={classes.paperInner}>
                   <FaStickyNote
-                    className="Toolsize"
-                    style={{ color: "#000000" }}
+                    className="tool-size"
                   />
                 </Paper>
               </Grid>
               <Grid item xs={10} sm={10} md={9} className={classes.toolDetail}>
-                <div className="Toolsize2">
+                <div className="tool-desc">
                   <Typography
                     variant="h5"
-                    style={{ color: "#000000", fontWeight: "Bold" }}
+                    className={classes.toolTitle}
                   >
                     Notepad
                   </Typography>
@@ -178,7 +184,7 @@ const Tool = () => {
                 </div>
               </Grid>
               <Grid item xs={2} sm={2} md={1} className={classes.goBtn}>
-                <GrNext style={{ color: "#868686" }} />
+                <GrNext />
               </Grid>
             </Grid>
           </Button>
