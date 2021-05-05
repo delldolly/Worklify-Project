@@ -43,7 +43,7 @@ const TaskBoard = ({ name }) => {
     } else {
       return data;
     }
-  }, []);
+  }, [currentUser, data, name]);
 
   return (
     <>

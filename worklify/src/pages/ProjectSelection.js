@@ -101,7 +101,7 @@ const ProjectSelection = () => {
   const [projectName, setProjectName] = useState("");
   const [desc, setDesc] = useState("");
   const [project, setProject] = useState([]);
-  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  const { enqueueSnackbar } = useSnackbar();
   const [modalopen, setModalopen] = useState(false);
 
   //alert
@@ -165,7 +165,7 @@ const ProjectSelection = () => {
         }
       }
     });
-  }, []);
+  }, [currentUser]);
   return (
     <div className={classes.home}>
       <div className={classes.projectSelected}>

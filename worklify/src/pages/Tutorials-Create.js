@@ -56,7 +56,7 @@ const TutorialsCreate = () => {
       </div>
       <Grid container spacing={3} style={{ marginBottom: "3rem" }}>
         <Grid item xs={12} md={4} lg={4}>
-          <img src={exampleImg} style={{ width: "100%" }} />
+          <img src={exampleImg} alt="img" style={{ width: "100%" }} />
         </Grid>
         <Grid item xs={12} md={8} lg={8}>
           <p style={{ fontWeight: "700" }} className="thai-font">วิธีสร้างงานภายในหัวข้อ</p>

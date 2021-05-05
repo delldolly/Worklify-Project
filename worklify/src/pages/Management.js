@@ -11,7 +11,7 @@ import Fade from "@material-ui/core/Fade";
 import TextField from "@material-ui/core/TextField";
 
 // import { FaFileAlt } from 'react-icons/fa';
-import { MdEdit } from "react-icons/md";
+// import { MdEdit } from "react-icons/md";
 import Lottie from "lottie-react";
 import Iconfile from "./lotties/4922-search-files.json";
 import FooterGif from "./lotties/24393-online-work.json";
@@ -94,9 +94,9 @@ const Management = () => {
   const [desc, setDesc] = useState("");
   const [modalopen, setModalopen] = useState(false);
 
-  const handleOpen = () => {
-    setModalopen(true);
-  };
+  // const handleOpen = () => {
+  //   setModalopen(true);
+  // };
   const handleClose = () => {
     setModalopen(false);
   };
@@ -114,7 +114,7 @@ const Management = () => {
         setProjectName(snapshot.val().name);
         setDesc(snapshot.val().description);
       });
-  }, [currentUser]);
+  }, [currentUser, nameProject]);
 
   return (
     <div className={classes.containerStyle}>

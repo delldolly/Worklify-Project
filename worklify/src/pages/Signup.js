@@ -11,7 +11,6 @@ import { useAuth } from "../contexts/AuthContext";
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from "react-router-dom";
 import { useSnackbar } from 'notistack';
-import { render } from "@testing-library/react";
 
 const useStyles = makeStyles((theme) => ({
   containerStyle: {
@@ -28,6 +27,10 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     flexDirection: 'column',
   },
+  inputStyle: {
+    width: "60%", 
+    height: "1rem",
+  }
 }));
 
 const Signup = () => {
@@ -37,7 +40,7 @@ const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  const { enqueueSnackbar } = useSnackbar();
   const handleSubmitSignup = async (e) => {
     e.preventDefault();
     try {
@@ -97,7 +100,7 @@ const Signup = () => {
                 shrink: true,
               }}
               required
-              style={{ width: "60%", height: "1rem" }}
+              className={classes.inputStyle}
               variant="outlined"
             />
             <TextField
@@ -114,7 +117,7 @@ const Signup = () => {
               InputLabelProps={{
                 shrink: true,
               }}
-              style={{ width: "60%", height: "1rem" }}
+              className={classes.inputStyle}
               variant="outlined"
             />
             <TextField
@@ -132,7 +135,7 @@ const Signup = () => {
               InputLabelProps={{
                 shrink: true,
               }}
-              style={{ width: "60%", height: "1rem" }}
+              className={classes.inputStyle}
               variant="outlined"
             />
             <Button onClick={handleSubmitSignup} className="button-login">

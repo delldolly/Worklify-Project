@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect } from "react";
 import { auth } from "../firebase";
 import { useCookies } from "react-cookie";
 
@@ -65,7 +65,7 @@ export const AuthProvider = (props) => {
       console.log("userData: ", userData);
     });
     return unsubscribe;
-  }, []);
+  }, [setCookie, userData]);
   return (
     <AuthContext.Provider
       value={{

@@ -65,7 +65,7 @@ const Notepad = () => {
           setNotes(snapshot.val());
         }
       });
-  }, []);
+  }, [currentUser.uid, nameProject]);
 
   function deleteNote(id) {
     setNotes((prevNotes) => {

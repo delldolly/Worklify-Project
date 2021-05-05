@@ -70,7 +70,7 @@ const Navbar = () => {
   const match = matchPath(location.pathname, { path: "/project/" });
   useEffect(() => {
     console.log(pageLocation, currentUser);
-  }, [pageLocation]);
+  }, [pageLocation, currentUser]);
 
   return (
     <>

@@ -34,7 +34,7 @@ const Tutorials = () => {
               alignItems: "center",
             }}
           >
-            <img src={image} style={{ height: "20vh" }} />
+            <img src={image} alt="img" style={{ height: "20vh" }} />
             <p style={{ fontWeight: "700", fontSize: "large" }}>
               Learn to Use Website
             </p>
@@ -76,7 +76,7 @@ const Tutorials = () => {
               alignItems: "center",
             }}
           >
-            <img src={image} style={{ height: "20vh" }} />
+            <img src={image} alt="img" style={{ height: "20vh" }} />
             <p style={{ fontWeight: "700", fontSize: "large" }}>
               How to Create Task{" "}
             </p>
@@ -118,7 +118,7 @@ const Tutorials = () => {
               alignItems: "center",
             }}
           >
-            <img src={image} style={{ height: "20vh" }} />
+            <img src={image} alt="img" style={{ height: "20vh" }} />
             <p style={{ fontWeight: "700", fontSize: "large" }}>
               Delete a task
             </p>
@@ -160,7 +160,7 @@ const Tutorials = () => {
               alignItems: "center",
             }}
           >
-            <img src={image} style={{ height: "20vh" }} />
+            <img src={image} alt="img" style={{ height: "20vh" }} />
             <p style={{ fontWeight: "700", fontSize: "large" }}>Use a Tool</p>
             <span
               style={{

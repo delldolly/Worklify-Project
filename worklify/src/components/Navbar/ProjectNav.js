@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Switch, Route, NavLink, useLocation } from "react-router-dom";
+import { Switch, Route, NavLink } from "react-router-dom";
 
 // Material UI
 import clsx from "clsx";
@@ -126,7 +126,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ProjectNav = () => {
-  const location = useLocation();
 
   // const nameProject = location.state.name
   const classes = useStyles();
@@ -308,12 +307,10 @@ const ProjectNav = () => {
             component={NavLink}
             onClick={() => {
               setPage("Notification");
+              removeCookieName();
             }}
             activeStyle={{ backgroundColor: "#175793", borderRadius: 0 }}
             to="/ProjectSelection"
-            onClick={() => {
-              removeCookieName();
-            }}
           >
             Back
           </Button>
