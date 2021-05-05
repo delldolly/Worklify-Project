@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: "1vw",
     fontSize: "4.2vmin",
     [theme.breakpoints.down(600)]: {
-      fontSize: "4.8vmin",
+      fontSize: "5vmin",
     },
   },
   buttonGrid: {
@@ -96,14 +96,14 @@ const Tool = () => {
               <Grid item xs={12} sm={12} md={2} className={classes.iconBox}>
                 <Paper className={classes.paperInner}>
                   <IoMdCalculator
-                    className="tool-size"
+                    className="tool-icon-main"
                   />
                 </Paper>
               </Grid>
               <Grid item xs={10} sm={10} md={9} className={classes.toolDetail}>
                 <div className="tool-desc">
                   <Typography
-                    variant="h5"
+                    variant="h4"
                     className={classes.toolTitle}
                   >
                     Calculator
@@ -130,14 +130,14 @@ const Tool = () => {
               <Grid item xs={12} sm={12} md={2} className={classes.iconBox}>
                 <Paper className={classes.paperInner}>
                   <FaFileExcel
-                    className="tool-size"
+                    className="tool-icon-main"
                   />
                 </Paper>
               </Grid>
               <Grid item xs={10} sm={10} md={9} className={classes.toolDetail}>
                 <div className="tool-desc">
                   <Typography
-                    variant="h5"
+                    variant="h4"
                     className={classes.toolTitle}
                   >
                     Excel for list table
@@ -163,14 +163,14 @@ const Tool = () => {
               <Grid item xs={12} sm={12} md={2} className={classes.iconBox}>
                 <Paper className={classes.paperInner}>
                   <FaStickyNote
-                    className="tool-size"
+                    className="tool-icon-main"
                   />
                 </Paper>
               </Grid>
               <Grid item xs={10} sm={10} md={9} className={classes.toolDetail}>
                 <div className="tool-desc">
                   <Typography
-                    variant="h5"
+                    variant="h4"
                     className={classes.toolTitle}
                   >
                     Notepad

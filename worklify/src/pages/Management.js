@@ -24,6 +24,7 @@ import "../css/management.css";
 const useStyles = makeStyles((theme) => ({
   containerStyle: {
     height: "calc(100vh - 64px)",
+    width: '100vw',
     padding: "3vmin",
     overflow: "auto",
   },
@@ -173,14 +174,14 @@ const Management = () => {
             </Paper>
           </Grid>
           <Grid item xs={12} sm={8} md={9}>
-            <div className="Toolsize3">
+            <div className="tool-desc">
               <Typography
                 variant="h4"
                 style={{ color: "#000000", fontWeight: "Bold" }}
               >
                 Project name
               </Typography>
-              <Typography variant="subtitle1" gutterBottom>
+              <Typography variant="h5" gutterBottom>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                 diam nonumy eirmod tempor invidunt utst, links, or any other
                 plain text) that you would like to write just in a web browser
