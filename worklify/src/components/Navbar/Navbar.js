@@ -6,6 +6,7 @@ import {
   NavLink,
   matchPath,
   Link,
+  Redirect,
 } from "react-router-dom";
 
 // Material UI
@@ -27,7 +28,7 @@ import ProjectSelection from "../../pages/ProjectSelection";
 import { useAuth } from "../../contexts/AuthContext";
 
 // alert
-import { SnackbarProvider } from 'notistack';
+import { SnackbarProvider } from "notistack";
 
 const useStyles = makeStyles((theme) => ({
   nav: {
@@ -134,7 +135,11 @@ const Navbar = () => {
               </Route>
               <Route path="/ProjectSelection">
                 <SnackbarProvider maxSnack={3}>
-                  <ProjectSelection />
+                  {currentUser === "null" ? (
+                    <Redirect to="/" />
+                  ) : (
+                    <ProjectSelection />
+                  )}
                 </SnackbarProvider>
               </Route>
             </Switch>

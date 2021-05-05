@@ -52,7 +52,6 @@ import TutorialsCreate from "../../pages/Tutorials-Create";
 import TutorialsDelete from "../../pages/Tutorials-Delete";
 import TutorialsUseTool from "../../pages/Tutorials-UseTool";
 
-
 const drawerWidth = 260;
 
 const useStyles = makeStyles((theme) => ({
@@ -301,7 +300,7 @@ const ProjectNav = () => {
             activeStyle={{ backgroundColor: "#175793", borderRadius: 0 }}
             to="/project/manager"
           >
-            Project Manager
+            Project Management
           </Button>
           <Button
             startIcon={<ArrowBackIosIcon />}
