@@ -26,6 +26,7 @@ import FormatListBulletedIcon from "@material-ui/icons/FormatListBulleted";
 import BuildIcon from "@material-ui/icons/Build";
 import SettingsIcon from "@material-ui/icons/Settings";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 import { RiBookLine } from "react-icons/ri";
 // import { FiCheckSquare } from 'react-icons/fi';
@@ -237,7 +238,10 @@ const ProjectNav = () => {
                 horizontal: "right",
               }}
             >
-              <MenuItem onClick={logout}>Log out</MenuItem>
+              <MenuItem onClick={logout}>
+                <ExitToAppIcon style={{ marginRight: '1vmin' }} />
+                Log out
+              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>

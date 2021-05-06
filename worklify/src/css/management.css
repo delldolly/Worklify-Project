@@ -20,4 +20,13 @@
 }
 
 @media screen and (max-width: 599px) {
+    .button-box {
+        padding: 3vmin 0;
+    }
+
+    .manage-btn {
+        width: auto;
+        padding: 1.2vmin 5vmin;
+        font-size: 2.8vmin !important;
+    }
 }
