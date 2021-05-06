@@ -78,6 +78,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     padding: theme.spacing(2, 4, 3),
+    [theme.breakpoints.down(600)]: {
+      padding: theme.spacing(2, 1, 3),
+    },
   },
   modalInput: {
     width: "100%",

@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
             overflow: 'hidden',
             textOverflow: 'ellipsis', 
             maxHeight: '3.6em',
+            textTransform: 'initial',
         }
     }
 }));

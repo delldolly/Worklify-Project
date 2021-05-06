@@ -286,6 +286,7 @@ const ProjectNav = () => {
             component={NavLink}
             onClick={() => {
               setPage("");
+              handleDrawerClose();
             }}
             activeStyle={{ backgroundColor: "#175793", borderRadius: 0 }}
             to={`/project/tasks/${nameProject}`}
@@ -298,6 +299,7 @@ const ProjectNav = () => {
             component={NavLink}
             onClick={() => {
               setPage("Tools and Utilities");
+              handleDrawerClose();
             }}
             activeStyle={{ backgroundColor: "#175793", borderRadius: 0 }}
             to="/project/tools"
@@ -310,6 +312,7 @@ const ProjectNav = () => {
             component={NavLink}
             onClick={() => {
               setPage("Tutorials");
+              handleDrawerClose();
             }}
             activeStyle={{ backgroundColor: "#175793", borderRadius: 0 }}
             to="/project/tutorials"
@@ -322,6 +325,7 @@ const ProjectNav = () => {
             component={NavLink}
             onClick={() => {
               setPage("Project Management");
+              handleDrawerClose();
             }}
             activeStyle={{ backgroundColor: "#175793", borderRadius: 0 }}
             to="/project/manager"
@@ -333,7 +337,6 @@ const ProjectNav = () => {
             className={classes.navButton}
             component={NavLink}
             onClick={() => {
-              setPage("Notification");
               removeCookieName();
             }}
             activeStyle={{ backgroundColor: "#175793", borderRadius: 0 }}

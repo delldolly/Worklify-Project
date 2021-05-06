@@ -99,7 +99,7 @@ const Navbar = () => {
                   <Box px={2}>
                     {currentUser ? currentUser.displayName : null}
                   </Box>
-                  <Box px={2}>
+                  <Box pl={2}>
                     {currentUser !== "null" ? (
                       <Button className={classes.logOutBtn} onClick={logout}>
                         Log out

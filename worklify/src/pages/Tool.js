@@ -176,7 +176,7 @@ const Tool = () => {
                     Notepad
                   </Typography>
                   <Typography variant="subtitle1" gutterBottom>
-                    free online notepad in web browser. A simple text editor is
+                    Free online notepad in web browser. A simple text editor is
                     all you need to use.you can create notes (ideas, to-do list,
                     links, or any other plain text) that you would like to write
                     just in a web browser online.
