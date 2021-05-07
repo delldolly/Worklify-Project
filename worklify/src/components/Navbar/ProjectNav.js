@@ -35,17 +35,17 @@ import { RiBookLine } from "react-icons/ri";
 import logo from "../../image/Logo.png";
 import proflie from "../../image/exProfile.jpg";
 
-//Auth
+// Auth
 import { useAuth } from "../../contexts/AuthContext";
 
-//Component
+// Component
 import TaskBoard from "../TaskBoard";
 
-//Page
+// Page
 import Tool from "../../pages/Tool";
 import Calculator from "../../pages/Calculator";
 import Notepad from "../../pages/Notepad";
-import Excels from "../../pages/Excel";
+// import Excels from "../../pages/Excel";
 import Management from "../../pages/Management";
 import Tutorials from "../../pages/Tutorials";
 import TutorialsLearn from "../../pages/Tutorials-Learn";
