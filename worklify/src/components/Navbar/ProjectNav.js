@@ -370,7 +370,8 @@ const ProjectNav = () => {
             <Notepad />
           </Route>
           <Route path="/project/tools/excel">
-            <Excels />
+            // <Excels />
+               <h1>ปิดปรับปรุงชั่วคราวเนื่องจากมีปัญหาขัดข้อง</h1>
           </Route>
           <Route exact path="/project/tutorials">
             <Tutorials />
