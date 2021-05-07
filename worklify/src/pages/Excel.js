@@ -54,8 +54,10 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '10px',
     boxShadow: "0px 0px 5px 2px rgb(0 0 0 / 20%)",
     display: 'flex',
+    flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
+    textAlign: 'center',
   },
 }));
 
@@ -99,6 +101,7 @@ const Excels = () => {
 
               <div className="button-box">
                 <Button
+                  disabled
                   variant="contained"
                   onClick={() => {
                     if (spread != null) {
@@ -120,7 +123,9 @@ const Excels = () => {
 
         {/* Excle */}
         <Paper className={classes.exclePaper}>
-          <SpreadSheets
+          <h1 style={{ color: '#f00' }}>* ปิดปรับปรุงชั่วคราวเนื่องจากมีปัญหาขัดข้อง *</h1>
+          <h2>สามารถดูแบบเต็มได้ใน source code</h2>
+          {/* <SpreadSheets
             hostStyle={{
               width: "70vw",
               height: "600px",
@@ -129,7 +134,7 @@ const Excels = () => {
             workbookInitialized={(spread) => { setSheet(spread) }}
           >
             <Worksheet />
-          </SpreadSheets>
+          </SpreadSheets> */}
 
         </Paper>
       </div>

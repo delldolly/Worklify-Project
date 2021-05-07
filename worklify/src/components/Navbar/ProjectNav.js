@@ -45,7 +45,7 @@ import TaskBoard from "../TaskBoard";
 import Tool from "../../pages/Tool";
 import Calculator from "../../pages/Calculator";
 import Notepad from "../../pages/Notepad";
-// import Excels from "../../pages/Excel";
+import Excels from "../../pages/Excel";
 import Management from "../../pages/Management";
 import Tutorials from "../../pages/Tutorials";
 import TutorialsLearn from "../../pages/Tutorials-Learn";
@@ -369,8 +369,7 @@ const ProjectNav = () => {
             <Notepad />
           </Route>
           <Route path="/project/tools/excel">
-            {/* <Excels /> */}
-            <h1>ปิดปรับปรุงชั่วคราวเนื่องจากมีปัญหาขัดข้อง</h1>
+            <Excels />
           </Route>
           <Route exact path="/project/tutorials">
             <Tutorials />
