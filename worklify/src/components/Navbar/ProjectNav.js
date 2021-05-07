@@ -26,7 +26,7 @@ import FormatListBulletedIcon from "@material-ui/icons/FormatListBulleted";
 import BuildIcon from "@material-ui/icons/Build";
 import SettingsIcon from "@material-ui/icons/Settings";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
 import { RiBookLine } from "react-icons/ri";
 // import { FiCheckSquare } from 'react-icons/fi';
@@ -82,13 +82,13 @@ const useStyles = makeStyles((theme) => ({
   },
   drawer: {
     width: drawerWidth,
-    height: '100vh',
+    height: "100vh",
     flexShrink: 0,
     color: "#fff",
   },
   drawerPaper: {
     width: drawerWidth,
-    height: '100%',
+    height: "100%",
     backgroundColor: "#5485A0",
     boxShadow: "3px 0px 15px 0px rgba(0,0,0,0.5)",
     overflowX: "hidden",
@@ -128,23 +128,23 @@ const useStyles = makeStyles((theme) => ({
   },
   navHeader: {
     margin: 0,
-    color: '#000',
-    fontSize: '3.5vmin',
+    color: "#000",
+    fontSize: "3.5vmin",
     [theme.breakpoints.down(600)]: {
-      fontSize: '5vmin',
+      fontSize: "5vmin",
     },
   },
   logout: {
     [theme.breakpoints.down(600)]: {
       paddingLeft: 0,
       paddingRight: 0,
-      minWidth: '30px',
+      minWidth: "30px",
     },
   },
   avatarBtn: {
     border: "2px solid #222",
-    width: '35px',
-    height: '35px',
+    width: "35px",
+    height: "35px",
     // [theme.breakpoints.down(600)]: {
     //   width: '7vmin',
     //   height: '7vmin',
@@ -153,7 +153,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ProjectNav = () => {
-
   // const nameProject = location.state.name
   const classes = useStyles();
   const theme = useTheme();
@@ -239,7 +238,7 @@ const ProjectNav = () => {
               }}
             >
               <MenuItem onClick={logout}>
-                <ExitToAppIcon style={{ marginRight: '1vmin' }} />
+                <ExitToAppIcon style={{ marginRight: "1vmin" }} />
                 Log out
               </MenuItem>
             </Menu>
@@ -370,8 +369,8 @@ const ProjectNav = () => {
             <Notepad />
           </Route>
           <Route path="/project/tools/excel">
-            // <Excels />
-               <h1>ปิดปรับปรุงชั่วคราวเนื่องจากมีปัญหาขัดข้อง</h1>
+            {/* <Excels /> */}
+            <h1>ปิดปรับปรุงชั่วคราวเนื่องจากมีปัญหาขัดข้อง</h1>
           </Route>
           <Route exact path="/project/tutorials">
             <Tutorials />
